@@ -1,0 +1,2670 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Cưới | Trần Quang Anh & Trần Thị Thanh Thư</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@500;600;700&family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: 'var(--bg-cream, #FFFFFF)',
+                        champagne: '#F9F6F0',
+                        burgundy: 'var(--primary-color, #8C2D2D)',
+                        burgundyDark: 'var(--primary-dark, #681D1D)',
+                        gold: 'var(--accent-gold, #C5A059)',
+                        goldLight: '#8A6628',
+                        ink: 'var(--text-ink, #3D312A)'
+                    },
+                    fontFamily: {
+                        serif: ['var(--font-body, "Cormorant Garamond")', 'serif'],
+                        display: ['"Playfair Display"', 'serif'],
+                        script: ['var(--font-script, "Great Vibes")', 'cursive'],
+                        sans: ['var(--font-body, "Be Vietnam Pro")', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-cream: #FFFFFF;
+            --primary-color: #8C2D2D;
+            --primary-dark: #681D1D;
+            --accent-gold: #C5A059;
+            --text-ink: #3D312A;
+            --env-color: #FAF8F5;
+            --font-script: 'Great Vibes';
+            --font-body: 'Cormorant Garamond';
+        }
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            background-color: #F4EFEA;
+            color: var(--text-ink);
+            font-family: var(--font-body), serif;
+            overflow-x: hidden;
+            margin: 0;
+        }
+        /* Bright, airy luxury background frame */
+        .app-shell {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #FAF8F5 0%, #EFECE6 50%, #F7F4EF 100%);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+        }
+        /* Card container (Pure Pearl White & Warm Ivory) */
+        .invitation-card {
+            width: 100%;
+            max-width: 540px;
+            min-height: 100vh;
+            background-color: var(--bg-cream);
+            background-image: radial-gradient(rgba(197, 160, 89, 0.16) 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            box-shadow: 0 20px 60px rgba(140, 118, 92, 0.16);
+            position: relative;
+            overflow: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        @media (min-width: 1024px) {
+            .invitation-card {
+                max-width: 820px;
+                margin: 2rem auto;
+                border-radius: 28px;
+                border: 1px solid rgba(197, 160, 89, 0.4);
+            }
+        }
+
+        /* Envelope Cover (Bìa Cưới Tone Trắng Kem Tinh Khôi Sang Trọng) */
+        .envelope-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 60;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(250, 248, 245, 0.94);
+            backdrop-filter: blur(10px);
+            transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.9s;
+        }
+        .envelope-overlay.opened {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .envelope-box {
+            width: 92%;
+            max-width: 460px;
+            min-height: 615px;
+            background: linear-gradient(165deg, #FFFFFF 0%, #FAF7F2 55%, #F3EDE2 100%);
+            border-radius: 24px;
+            border: 1.5px solid rgba(197, 160, 89, 0.65);
+            box-shadow: 0 25px 65px rgba(138, 112, 76, 0.22), inset 0 0 35px rgba(255, 255, 255, 0.9);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px 24px;
+            text-align: center;
+            color: var(--text-ink);
+            transform-style: preserve-3d;
+            transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        /* Subtle inner gold border on envelope */
+        .envelope-box::before {
+            content: "";
+            position: absolute;
+            inset: 10px;
+            border: 1px solid rgba(197, 160, 89, 0.35);
+            border-radius: 18px;
+            pointer-events: none;
+            z-index: 4;
+        }
+        .envelope-overlay.opening .envelope-box {
+            transform: scale(1.06) translateY(-28px);
+        }
+        /* White/Pearl Flap visual lines */
+        .envelope-flap-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 240px;
+            background: linear-gradient(180deg, #FFFFFF 0%, #F7F2E9 100%);
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            border-bottom: 2px solid var(--accent-gold);
+            transform-origin: top center;
+            transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 3;
+            filter: drop-shadow(0 8px 16px rgba(155, 130, 95, 0.18));
+        }
+        /* Bottom and side subtle paper fold lines */
+        .envelope-fold-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 220px;
+            background: linear-gradient(0deg, rgba(242, 235, 223, 0.7) 0%, rgba(255, 255, 255, 0.1) 100%);
+            clip-path: polygon(0 100%, 100% 100%, 50% 0);
+            z-index: 1;
+            pointer-events: none;
+        }
+        .envelope-overlay.opening .envelope-flap-top {
+            transform: rotateX(180deg);
+        }
+
+        /* 3D Glossy Crimson Heart Wax Seal Button on Bright Pearl Paper */
+        .heart-wax-seal-btn {
+            width: 136px;
+            height: 130px;
+            background: transparent;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            cursor: pointer;
+            position: relative;
+            z-index: 10;
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.35s ease;
+            filter: drop-shadow(0 12px 18px rgba(130, 20, 20, 0.32)) drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+            animation: pulseHeartSeal 2.4s infinite ease-in-out;
+        }
+        .heart-wax-seal-btn:hover {
+            transform: scale(1.09) rotate(-2deg);
+            filter: drop-shadow(0 16px 24px rgba(150, 20, 20, 0.42));
+        }
+        .heart-wax-seal-btn:active {
+            transform: scale(0.96);
+        }
+        @keyframes pulseHeartSeal {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Customizable Scroll Reveal Effects */
+        .reveal-item {
+            opacity: 0;
+            transition: opacity 0.85s ease, transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: opacity, transform;
+        }
+        /* Style 1: Fade Up */
+        body[data-scroll-fx="fade-up"] .reveal-item {
+            transform: translateY(36px);
+        }
+        body[data-scroll-fx="fade-up"] .reveal-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Style 2: Zoom Soft */
+        body[data-scroll-fx="zoom"] .reveal-item {
+            transform: scale(0.92);
+        }
+        body[data-scroll-fx="zoom"] .reveal-item.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        /* Style 3: Slide Left/Right */
+        body[data-scroll-fx="slide"] .reveal-item:nth-child(odd) {
+            transform: translateX(-40px);
+        }
+        body[data-scroll-fx="slide"] .reveal-item:nth-child(even) {
+            transform: translateX(40px);
+        }
+        body[data-scroll-fx="slide"] .reveal-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        /* Style 4: Flip 3D */
+        body[data-scroll-fx="flip"] .reveal-item {
+            transform: perspective(800px) rotateX(22deg) translateY(25px);
+        }
+        body[data-scroll-fx="flip"] .reveal-item.visible {
+            opacity: 1;
+            transform: perspective(800px) rotateX(0deg) translateY(0);
+        }
+        /* Style 5: None */
+        body[data-scroll-fx="none"] .reveal-item {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        /* Interactive Drag-to-Pan in Photo Editor */
+        .interactive-crop-stage {
+            cursor: grab;
+            user-select: none;
+            touch-action: none;
+        }
+        .interactive-crop-stage:active {
+            cursor: grabbing;
+        }
+
+        /* Flexible Photo Frame Styles (No forced auto-cropping unless chosen) */
+        .photo-slot-wrapper {
+            position: relative;
+            overflow: hidden;
+            background-color: #FAF7F2;
+            border: 1.5px solid rgba(197, 160, 89, 0.45);
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(140, 118, 92, 0.1);
+        }
+        .photo-slot-wrapper.frame-natural {
+            border-radius: 16px;
+        }
+        .photo-slot-wrapper.frame-arch {
+            border-radius: 220px 220px 18px 18px;
+            aspect-ratio: 3 / 4;
+        }
+        .photo-slot-wrapper.frame-portrait {
+            border-radius: 16px;
+            aspect-ratio: 3 / 4;
+        }
+        .photo-slot-wrapper.frame-landscape {
+            border-radius: 16px;
+            aspect-ratio: 4 / 3;
+        }
+        .photo-slot-wrapper.frame-square {
+            border-radius: 16px;
+            aspect-ratio: 1 / 1;
+        }
+        .photo-slot-img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            transform-origin: center center;
+            transition: transform 0.15s ease-out;
+        }
+        .photo-slot-wrapper.frame-natural .photo-slot-img {
+            height: auto;
+            max-height: 750px;
+        }
+
+        /* Edit mode visual indicator */
+        body.admin-edit-mode [data-editable="true"],
+        body.admin-edit-mode [data-editable] {
+            outline: 1.5px dashed rgba(140, 45, 45, 0.55);
+            outline-offset: 4px;
+            border-radius: 6px;
+            cursor: text;
+            background-color: rgba(255, 248, 231, 0.65);
+            transition: all 0.2s;
+        }
+        body.admin-edit-mode [data-editable]:focus {
+            outline: 2px solid #8C2D2D;
+            background-color: #FFFFFF;
+        }
+        .admin-only-control {
+            display: none !important;
+        }
+        body.admin-edit-mode .admin-only-control {
+            display: inline-flex !important;
+        }
+        body.admin-edit-mode .admin-only-block {
+            display: block !important;
+        }
+
+        /* Spinning Music Disc */
+        .music-disc-playing {
+            animation: spinDisc 7s linear infinite;
+        }
+        @keyframes spinDisc {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Falling Petals Canvas */
+        #petalsCanvas {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 35;
+        }
+    </style>
+</head>
+
+<body data-scroll-fx="fade-up">
+
+    <!-- Falling Rose Petals Canvas -->
+    <canvas id="petalsCanvas"></canvas>
+
+    <!-- Hidden YouTube Player for Background Song (https://youtu.be/JgTZvDbaTtg) -->
+    <div id="ytAudioContainer" class="fixed -left-[9999px] -top-[9999px] w-1 h-1 overflow-hidden pointer-events-none" aria-hidden="true">
+        <div id="youtubePlayer"></div>
+    </div>
+    <!-- Fallback HTML5 Audio if user adds direct MP3 link in Admin -->
+    <audio id="customAudioPlayer" loop preload="auto"></audio>
+
+    <!-- Floating Music Button -->
+    <button id="musicToggleBtn" type="button" title="Bật / Tắt nhạc cưới"
+        class="fixed bottom-5 left-5 z-50 w-12 h-12 rounded-full bg-white text-burgundy border-2 border-gold shadow-lg flex items-center justify-center hover:scale-105 transition">
+        <i id="musicIcon" class="fa-solid fa-compact-disc text-xl"></i>
+    </button>
+
+    <!-- Floating Admin Toolbar (ONLY visible after unlocking with password) -->
+    <div id="adminFloatingBar" class="admin-only-control fixed bottom-5 right-5 z-50 flex-wrap items-center gap-2 bg-white/95 text-ink px-4 py-2.5 rounded-2xl border-2 border-gold shadow-2xl backdrop-blur-md">
+        <span class="text-xs font-semibold uppercase tracking-wider text-burgundy flex items-center gap-1.5">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Chế độ Chỉnh Sửa
+        </span>
+        <button id="openAdminDrawerBtn" type="button" class="px-3 py-1.5 rounded-xl bg-burgundy text-white font-semibold text-xs hover:opacity-90 transition">
+            <i class="fa-solid fa-sliders mr-1"></i> Bảng Điều Khiển &amp; Chia Sẻ 3 Thiệp
+        </button>
+        <button id="saveAllChangesBtn" type="button" class="px-3 py-1.5 rounded-xl bg-emerald-700 text-white font-semibold text-xs hover:bg-emerald-600 transition">
+            <i class="fa-solid fa-floppy-disk mr-1"></i> Lưu
+        </button>
+        <button id="exitAdminModeBtn" type="button" class="px-2.5 py-1.5 rounded-xl bg-gray-100 text-ink text-xs hover:bg-gray-200 transition" title="Thoát chế độ sửa">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <!-- ==========================================
+         1. ENVELOPE COVER (BÌA CƯỚI PHONG CÁCH COCOHAPPII - TONE TRẮNG KEM SÁNG)
+    =========================================== -->
+    <div id="envelopeOverlay" class="envelope-overlay">
+        <div class="envelope-box">
+            <div class="envelope-flap-top"></div>
+            <div class="envelope-fold-bottom"></div>
+
+            <!-- Top Header on Envelope -->
+            <div class="relative z-10 pt-2">
+                <p data-editable="coverTopLabel" class="text-xs uppercase tracking-[0.3em] text-goldLight font-sans mb-2 font-semibold">
+                    Wedding Invitation
+                </p>
+                <div class="w-20 h-[1px] bg-gold/60 mx-auto mb-3"></div>
+                <p id="coverGreetingText" data-editable="coverGreeting" class="font-serif italic text-xl text-burgundy font-semibold">
+                    Trân trọng kính mời
+                </p>
+                <p id="coverGuestName" data-editable="coverGuestName" class="font-display text-xl font-bold text-ink mt-1 tracking-wide">
+                    Quý Khách
+                </p>
+            </div>
+
+            <!-- Center Wax Seal -->
+            <div class="relative z-10 my-auto py-5">
+                <div class="mb-4">
+                    <h2 data-editable="coverGroomName" class="font-script text-4xl sm:text-5xl text-burgundy drop-shadow-sm">
+                        Trần Quang Anh
+                    </h2>
+                    <p class="font-serif italic text-lg text-gold my-1">&amp;</p>
+                    <h2 data-editable="coverBrideName" class="font-script text-4xl sm:text-5xl text-burgundy drop-shadow-sm">
+                        Trần Thị Thanh Thư
+                    </h2>
+                </div>
+
+                <!-- 3D Glossy Crimson Heart Wax Seal (Nổi bật trên nền phong bì Trắng Kem) -->
+                <button id="openEnvelopeBtn" type="button" class="heart-wax-seal-btn group" title="Chạm vào sáp trái tim để mở thiệp">
+                    <div id="waxSealGraphicWrapper" class="w-full h-full flex items-center justify-center relative">
+                        <!-- Custom Uploaded Seal Image -->
+                        <img id="customWaxSealImg" src="" alt="Dấu sáp mở thiệp" class="hidden w-32 h-32 object-contain rounded-full">
+                        <!-- Realistic 3D Glossy Deep Crimson Heart Wax Seal SVG -->
+                        <svg id="defaultHeartWaxSvg" viewBox="0 0 240 225" class="w-full h-full overflow-visible">
+                            <defs>
+                                <radialGradient id="crimsonWaxOuter" cx="38%" cy="30%" r="70%" fx="32%" fy="25%">
+                                    <stop offset="0%" stop-color="#e32424"/>
+                                    <stop offset="28%" stop-color="#aa0b0b"/>
+                                    <stop offset="68%" stop-color="#750303"/>
+                                    <stop offset="92%" stop-color="#4a0000"/>
+                                    <stop offset="100%" stop-color="#2e0000"/>
+                                </radialGradient>
+                                <radialGradient id="crimsonWaxBasin" cx="45%" cy="38%" r="65%">
+                                    <stop offset="0%" stop-color="#c21010"/>
+                                    <stop offset="55%" stop-color="#850505"/>
+                                    <stop offset="88%" stop-color="#520101"/>
+                                    <stop offset="100%" stop-color="#330000"/>
+                                </radialGradient>
+                                <linearGradient id="crimsonInnerHeart" x1="20%" y1="15%" x2="85%" y2="90%">
+                                    <stop offset="0%" stop-color="#eb2828"/>
+                                    <stop offset="40%" stop-color="#a30808"/>
+                                    <stop offset="80%" stop-color="#610202"/>
+                                    <stop offset="100%" stop-color="#3b0000"/>
+                                </linearGradient>
+                                <linearGradient id="waxGlossHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="rgba(255,255,255,0.82)"/>
+                                    <stop offset="25%" stop-color="rgba(255,210,210,0.32)"/>
+                                    <stop offset="60%" stop-color="rgba(255,255,255,0)"/>
+                                    <stop offset="100%" stop-color="rgba(255,180,180,0.25)"/>
+                                </linearGradient>
+                                <filter id="wax3DRelief" x="-10%" y="-10%" width="120%" height="120%">
+                                    <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#290000" flood-opacity="0.65"/>
+                                </filter>
+                            </defs>
+
+                            <!-- 1. Organic Outer Melted Wax Heart Base -->
+                            <path d="M120 38
+                                     C100 10, 52 6, 28 34
+                                     C5 61, 8 106, 36 139
+                                     C62 169, 95 194, 120 214
+                                     C145 194, 178 169, 204 139
+                                     C232 106, 235 61, 212 34
+                                     C188 6, 140 10, 120 38 Z"
+                                  fill="url(#crimsonWaxOuter)"
+                                  stroke="#470000"
+                                  stroke-width="1.5"/>
+
+                            <!-- Organic Wavy Wax Rim Bumps -->
+                            <path d="M120 42
+                                     C98 14, 54 12, 32 38
+                                     C11 63, 14 104, 41 135
+                                     C66 164, 96 187, 120 207
+                                     C144 187, 174 164, 199 135
+                                     C226 104, 229 63, 208 38
+                                     C186 12, 142 14, 120 42 Z"
+                                  fill="none"
+                                  stroke="url(#waxGlossHighlight)"
+                                  stroke-width="6.5"
+                                  stroke-linecap="round"
+                                  opacity="0.88"/>
+
+                            <!-- 2. Recessed Smooth Heart Basin Inside the Rim -->
+                            <path d="M120 53
+                                     C102 29, 64 26, 44 49
+                                     C26 70, 29 104, 52 131
+                                     C74 156, 100 176, 120 193
+                                     C140 176, 166 156, 188 131
+                                     C211 104, 214 70, 196 49
+                                     C176 26, 138 29, 120 53 Z"
+                                  fill="url(#crimsonWaxBasin)"
+                                  stroke="#380000"
+                                  stroke-width="3"/>
+
+                            <!-- Basin Inner Rim Specular Gloss -->
+                            <path d="M46 58 C34 78, 39 105, 58 128 C77 150, 99 168, 118 183"
+                                  fill="none"
+                                  stroke="rgba(255, 230, 230, 0.48)"
+                                  stroke-width="3.2"
+                                  stroke-linecap="round"/>
+                            <path d="M62 35 C82 28, 103 35, 116 49"
+                                  fill="none"
+                                  stroke="rgba(255, 255, 255, 0.68)"
+                                  stroke-width="3.5"
+                                  stroke-linecap="round"/>
+                            <path d="M135 42 C152 30, 178 31, 193 48"
+                                  fill="none"
+                                  stroke="rgba(255, 255, 255, 0.58)"
+                                  stroke-width="3"
+                                  stroke-linecap="round"/>
+
+                            <!-- 3. Sculpted Embossed Inner Heart -->
+                            <g filter="url(#wax3DRelief)">
+                                <path d="M120 90
+                                         C111 76, 90 74, 80 87
+                                         C70 99, 73 118, 86 132
+                                         C98 145, 111 155, 120 164
+                                         C129 155, 142 145, 154 132
+                                         C167 118, 170 99, 160 87
+                                         C150 74, 129 76, 120 90 Z"
+                                      fill="url(#crimsonInnerHeart)"
+                                      stroke="#520000"
+                                      stroke-width="2.2"/>
+
+                                <path d="M120 96
+                                         C113 84, 94 82, 86 92
+                                         C78 102, 81 117, 92 128
+                                         C102 138, 112 146, 120 153
+                                         C128 146, 138 138, 148 128
+                                         C159 117, 162 102, 154 92
+                                         C146 82, 127 84, 120 96 Z"
+                                      fill="none"
+                                      stroke="rgba(255, 200, 200, 0.55)"
+                                      stroke-width="2.4"
+                                      stroke-linecap="round"/>
+
+                                <path d="M102 106 C112 98, 128 102, 131 114 C134 124, 121 132, 110 125 C101 119, 104 109, 116 111"
+                                      fill="none"
+                                      stroke="rgba(255, 225, 225, 0.45)"
+                                      stroke-width="2.2"
+                                      stroke-linecap="round"/>
+                            </g>
+
+                            <!-- 4. High-Gloss Wet Specular Highlights -->
+                            <ellipse cx="64" cy="60" rx="14" ry="6" transform="rotate(-35 64 60)" fill="rgba(255,255,255,0.55)"/>
+                            <circle cx="52" cy="76" r="3.5" fill="rgba(255,255,255,0.48)"/>
+                            <ellipse cx="174" cy="58" rx="11" ry="4.5" transform="rotate(32 174 58)" fill="rgba(255,255,255,0.45)"/>
+                            <path d="M188 86 C194 104, 185 125, 168 144" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                </button>
+                <p data-editable="coverTapHint" class="text-xs text-burgundy/85 font-medium mt-3 tracking-wider animate-pulse">
+                    Chạm vào dấu sáp trái tim để mở thiệp
+                </p>
+            </div>
+
+            <!-- Bottom Date on Envelope -->
+            <div class="relative z-10 border-t border-gold/40 pt-3">
+                <p id="coverDateBadge" data-editable="coverDateBadge" class="font-display text-sm tracking-[0.22em] text-ink font-semibold uppercase">
+                    02 . 11 . 2026 &nbsp;|&nbsp; 07 . 11 . 2026
+                </p>
+                <p data-editable="coverCity" class="text-xs text-ink/70 mt-1 tracking-widest uppercase">
+                    Hải Phòng
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         2. MAIN INVITATION CONTENT (TONE TRẮNG NGỌC TRAI & KEM SÁNG)
+    =========================================== -->
+    <div class="app-shell">
+        <main class="invitation-card">
+
+            <!-- Top Ornamental Border -->
+            <div class="h-2 bg-gradient-to-r from-gold/30 via-gold to-gold/30"></div>
+
+            <!-- SECTION 1: HERO BANNER -->
+            <section id="sec-hero" class="relative px-5 pt-8 pb-10 text-center reveal-item visible">
+                <button type="button" onclick="toggleSectionVisibility('sec-hero')" class="admin-only-control absolute top-3 right-4 z-20 px-2.5 py-1 rounded-lg bg-burgundy text-white text-xs">
+                    <i class="fa-solid fa-eye-slash mr-1"></i> Ẩn mục này
+                </button>
+
+                <p data-editable="heroSaveTheDate" class="text-xs uppercase tracking-[0.35em] text-goldLight font-sans font-semibold mb-2">
+                    Save The Date
+                </p>
+                <h1 class="font-script text-5xl sm:text-6xl text-burgundy leading-tight mt-1">
+                    <span data-editable="heroGroomName">Trần Quang Anh</span>
+                </h1>
+                <div class="flex items-center justify-center gap-3 my-1">
+                    <span class="w-12 h-[1px] bg-gold"></span>
+                    <span data-editable="heroAndSymbol" class="font-serif italic text-2xl text-gold">&amp;</span>
+                    <span class="w-12 h-[1px] bg-gold"></span>
+                </div>
+                <h1 class="font-script text-5xl sm:text-6xl text-burgundy leading-tight mb-6">
+                    <span data-editable="heroBrideName">Trần Thị Thanh Thư</span>
+                </h1>
+
+                <!-- Main Hero Photo Frame (Customizable without forced cropping) -->
+                <div class="max-w-md mx-auto relative group">
+                    <div id="heroPhotoWrapper" class="photo-slot-wrapper frame-arch mx-auto shadow-xl">
+                        <img id="heroPhotoImg"
+                             src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85"
+                             alt="Ảnh Cưới Chính"
+                             class="photo-slot-img"
+                             style="object-fit: cover;"
+                             onerror="this.src='https://placehold.co/800x1000/FAF8F5/8C2D2D?text=Quang+Anh+%26+Thanh+Thu'">
+                    </div>
+                    <!-- Edit Hero Photo Button (Admin only) -->
+                    <button type="button" onclick="openPhotoEditor('hero')"
+                        class="admin-only-control absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-white/95 text-burgundy text-xs font-semibold shadow-lg border border-gold hover:scale-105 transition">
+                        <i class="fa-solid fa-crop-simple mr-1.5"></i> Đổi &amp; Căn chỉnh Ảnh Chính
+                    </button>
+                </div>
+
+                <!-- Dynamic Greeting Line on Card -->
+                <div class="mt-7 max-w-md mx-auto bg-champagne/80 border border-gold/40 rounded-2xl p-5 shadow-sm">
+                    <p id="cardGreetingLabel" data-editable="cardGreetingLabel" class="font-serif italic text-2xl text-burgundy font-semibold">
+                        Trân trọng kính mời
+                    </p>
+                    <p id="cardGuestNameLabel" data-editable="cardGuestNameLabel" class="font-display text-xl font-bold text-ink mt-1">
+                        Quý Khách
+                    </p>
+                    <p data-editable="cardInviteSubtext" class="text-sm text-ink/80 mt-2 leading-relaxed">
+                        Đến dự bữa tiệc thân mật mừng lễ thành hôn / vu quy của hai chúng tôi. Sự hiện diện của Quý vị là niềm vinh hạnh lớn lao của gia đình!
+                    </p>
+                </div>
+            </section>
+
+            <!-- Ornamental Divider -->
+            <div class="flex items-center justify-center gap-3 py-2 opacity-80">
+                <span class="w-16 h-[1px] bg-gold"></span>
+                <i class="fa-solid fa-heart text-burgundy text-xs"></i>
+                <span class="w-16 h-[1px] bg-gold"></span>
+            </div>
+
+            <!-- SECTION 2: LỜI NGỎ (INTRO MESSAGE) -->
+            <section id="sec-loingo" class="relative px-6 py-8 text-center reveal-item">
+                <button type="button" onclick="toggleSectionVisibility('sec-loingo')" class="admin-only-control absolute top-2 right-4 z-20 px-2.5 py-1 rounded-lg bg-burgundy text-white text-xs">
+                    <i class="fa-solid fa-eye-slash mr-1"></i> Ẩn mục này
+                </button>
+                <p data-editable="loiNgoSub" class="text-xs uppercase tracking-[0.28em] text-goldLight font-sans font-semibold mb-1">
+                    Lời Ngỏ
+                </p>
+                <h2 data-editable="loiNgoTitle" class="font-script text-4xl text-burgundy mb-4">
+                    Hạnh Phúc Trăm Năm
+                </h2>
+                <p data-editable="loiNgoContent" class="text-base sm:text-lg text-ink/90 leading-relaxed max-w-lg mx-auto italic">
+                    "Hôn nhân không phải là một điểm đến, mà là một cuộc hành trình nơi hai người cùng nhau xây dựng tổ ấm yêu thương. Thật hạnh phúc khi trên chặng đường bắt đầu ấy, chúng mình có sự chứng kiến và chúc phúc của gia đình, người thân và những người bạn trân quý nhất."
+                </p>
+            </section>
+
+            <!-- SECTION 3: THÔNG TIN GIA ĐÌNH HAI BÊN (KHÔNG ĐỂ ẢNH RIÊNG CÔ DÂU CHÚ RỂ) -->
+            <section id="sec-family" class="relative px-5 py-8 reveal-item">
+                <button type="button" onclick="toggleSectionVisibility('sec-family')" class="admin-only-control absolute top-2 right-4 z-20 px-2.5 py-1 rounded-lg bg-burgundy text-white text-xs">
+                    <i class="fa-solid fa-eye-slash mr-1"></i> Ẩn mục này
+                </button>
+
+                <div class="bg-champagne/70 border border-gold/50 rounded-3xl p-6 sm:p-8 shadow-sm">
+                    <p data-editable="familyHeaderLabel" class="text-center text-xs uppercase tracking-[0.25em] text-goldLight font-sans font-semibold mb-6">
+                        Thông Tin Gia Đình Hai Bên
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 relative">
+                        <!-- Nhà Trai -->
+                        <div class="text-center p-5 rounded-2xl bg-white border border-gold/30 shadow-sm">
+                            <p data-editable="groomSideTitle" class="font-display font-bold text-sm uppercase tracking-widest text-burgundy mb-2">
+                                Nhà Trai
+                            </p>
+                            <div class="w-8 h-[1px] bg-gold mx-auto mb-3"></div>
+                            <p class="text-sm text-ink/90">
+                                <span data-editable="groomFatherLabel" class="font-semibold">Bố:</span>
+                                <span data-editable="groomFatherName" class="font-display font-semibold text-base ml-1">Trần Văn Oanh</span>
+                            </p>
+                            <p class="text-sm text-ink/90 mt-1">
+                                <span data-editable="groomMotherLabel" class="font-semibold">Mẹ:</span>
+                                <span data-editable="groomMotherName" class="font-display font-semibold text-base ml-1">Vũ Thị Hạnh</span>
+                            </p>
+                            <div class="mt-4 pt-3 border-t border-gold/25">
+                                <p data-editable="groomRank" class="text-xs uppercase tracking-wider text-goldLight font-sans font-semibold">
+                                    Chú Rể (Út Nam)
+                                </p>
+                                <h3 data-editable="groomFullName" class="font-script text-3xl sm:text-4xl text-burgundy mt-1">
+                                    Trần Quang Anh
+                                </h3>
+                            </div>
+                        </div>
+
+                        <!-- Nhà Gái -->
+                        <div class="text-center p-5 rounded-2xl bg-white border border-gold/30 shadow-sm">
+                            <p data-editable="brideSideTitle" class="font-display font-bold text-sm uppercase tracking-widest text-burgundy mb-2">
+                                Nhà Gái
+                            </p>
+                            <div class="w-8 h-[1px] bg-gold mx-auto mb-3"></div>
+                            <p class="text-sm text-ink/90">
+                                <span data-editable="brideFatherLabel" class="font-semibold">Bố:</span>
+                                <span data-editable="brideFatherName" class="font-display font-semibold text-base ml-1">Trần Đức Quân</span>
+                            </p>
+                            <p class="text-sm text-ink/90 mt-1">
+                                <span data-editable="brideMotherLabel" class="font-semibold">Mẹ:</span>
+                                <span data-editable="brideMotherName" class="font-display font-semibold text-base ml-1">Trần Thị Thường</span>
+                            </p>
+                            <div class="mt-4 pt-3 border-t border-gold/25">
+                                <p data-editable="brideRank" class="text-xs uppercase tracking-wider text-goldLight font-sans font-semibold">
+                                    Cô Dâu (Trưởng Nữ)
+                                </p>
+                                <h3 data-editable="brideFullName" class="font-script text-3xl sm:text-4xl text-burgundy mt-1">
+                                    Trần Thị Thanh Thư
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 4: LỊCH TRÌNH HÔN LỄ (TỰ ĐỘNG HIỂN THỊ LỄ THÀNH HÔN / LỄ VU QUY THEO LỰA CHỌN) -->
+            <section id="sec-events" class="relative px-5 py-8 reveal-item">
+                <button type="button" onclick="toggleSectionVisibility('sec-events')" class="admin-only-control absolute top-2 right-4 z-20 px-2.5 py-1 rounded-lg bg-burgundy text-white text-xs">
+                    <i class="fa-solid fa-eye-slash mr-1"></i> Ẩn mục này
+                </button>
+
+                <div class="text-center mb-6">
+                    <p data-editable="eventSectionSub" class="text-xs uppercase tracking-[0.3em] text-goldLight font-sans font-semibold">
+                        Thời Gian &amp; Địa Điểm
+                    </p>
+                    <h2 data-editable="eventSectionTitle" class="font-script text-4xl sm:text-5xl text-burgundy mt-1">
+                        Trân Trọng Báo Tin
+                    </h2>
+                </div>
+
+                <div id="eventsCardsContainer" class="space-y-6">
+                    <!-- CARD 1: LỄ THÀNH HÔN (NHÀ TRAI - 02/11/2026) -->
+                    <div id="eventCardThanhHon" class="bg-white border-2 border-gold/50 rounded-3xl p-6 sm:p-7 text-center shadow-md relative overflow-hidden">
+                        <div class="inline-block px-4 py-1 rounded-full bg-burgundy text-white text-xs font-sans uppercase tracking-widest mb-3">
+                            <span data-editable="thanhHonBadge">Nhà Trai</span>
+                        </div>
+                        <h3 data-editable="thanhHonTitle" class="font-display text-2xl sm:text-3xl font-bold text-burgundy uppercase tracking-wide">
+                            Lễ Thành Hôn
+                        </h3>
+                        <p data-editable="thanhHonSub" class="text-sm text-ink/75 italic mt-1">
+                            Được cử hành trọng thể vào lúc
+                        </p>
+
+                        <!-- Giờ & Ngày Dương Lịch -->
+                        <div class="my-4 py-3 px-4 bg-champagne rounded-2xl border border-gold/40 inline-block min-w-[260px]">
+                            <p data-editable="thanhHonTime" class="font-display text-2xl font-bold text-burgundy">
+                                17h30 - Thứ Hai
+                            </p>
+                            <p data-editable="thanhHonSolarDate" class="font-display text-3xl font-bold text-ink tracking-wider my-1">
+                                02 / 11 / 2026
+                            </p>
+                            <p data-editable="thanhHonLunarDate" class="text-xs text-ink/75 italic">
+                                (Tức ngày 24/09 năm Bính Ngọ)
+                            </p>
+                        </div>
+
+                        <!-- Địa điểm Nhà Trai -->
+                        <div class="mt-3">
+                            <p data-editable="thanhHonVenueTitle" class="font-display font-bold text-base text-burgundy">
+                                <i class="fa-solid fa-location-dot text-gold mr-1"></i>
+                                Trung tâm tiệc cưới Mai Hồng Phúc
+                            </p>
+                            <p data-editable="thanhHonVenueAddress" class="text-sm text-ink/85 mt-1 max-w-md mx-auto leading-relaxed">
+                                Số 1B Thiên Lôi, Đằng Giang, Ngô Quyền, Hải Phòng
+                            </p>
+                            <a id="thanhHonMapLink"
+                               href="https://www.google.com/maps/search/?api=1&query=Trung+t%C3%A2m+ti%E1%BB%87c+c%C6%B0%E1%BB%9Bi+Mai+H%E1%BB%93ng+Ph%C3%BAc+1B+Thi%C3%AAn+L%C3%B4i+H%E1%BA%A3i+Ph%C3%B2ng"
+                               target="_blank" rel="noopener noreferrer"
+                               class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full bg-burgundy text-white text-xs font-sans font-semibold tracking-wider hover:opacity-90 transition shadow">
+                                <i class="fa-solid fa-map-location-dot"></i> Xem Bản Đồ Chỉ Đường
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- CARD 2: LỄ VU QUY (NHÀ GÁI - 07/11/2026) -->
+                    <div id="eventCardVuQuy" class="bg-white border-2 border-gold/50 rounded-3xl p-6 sm:p-7 text-center shadow-md relative overflow-hidden">
+                        <div class="inline-block px-4 py-1 rounded-full bg-burgundy text-white text-xs font-sans uppercase tracking-widest mb-3">
+                            <span data-editable="vuQuyBadge">Nhà Gái</span>
+                        </div>
+                        <h3 data-editable="vuQuyTitle" class="font-display text-2xl sm:text-3xl font-bold text-burgundy uppercase tracking-wide">
+                            Lễ Vu Quy
+                        </h3>
+                        <p data-editable="vuQuySub" class="text-sm text-ink/75 italic mt-1">
+                            Được cử hành trọng thể vào lúc
+                        </p>
+
+                        <!-- Giờ & Ngày Dương Lịch -->
+                        <div class="my-4 py-3 px-4 bg-champagne rounded-2xl border border-gold/40 inline-block min-w-[260px]">
+                            <p data-editable="vuQuyTime" class="font-display text-2xl font-bold text-burgundy">
+                                10h00 - Thứ Bảy
+                            </p>
+                            <p data-editable="vuQuySolarDate" class="font-display text-3xl font-bold text-ink tracking-wider my-1">
+                                07 / 11 / 2026
+                            </p>
+                            <p data-editable="vuQuyLunarDate" class="text-xs text-ink/75 italic">
+                                (Tức ngày 29/09 năm Bính Ngọ)
+                            </p>
+                        </div>
+
+                        <!-- Địa điểm Nhà Gái -->
+                        <div class="mt-3">
+                            <p data-editable="vuQuyVenueTitle" class="font-display font-bold text-base text-burgundy">
+                                <i class="fa-solid fa-location-dot text-gold mr-1"></i>
+                                Trung tâm tiệc cưới - Khu Sinh thái Sông Quê
+                            </p>
+                            <p data-editable="vuQuyVenueAddress" class="text-sm text-ink/85 mt-1 max-w-md mx-auto leading-relaxed">
+                                Thôn Tiên Thanh, xã Tiên Lãng, thành phố Hải Phòng
+                            </p>
+                            <a id="vuQuyMapLink"
+                               href="https://www.google.com/maps/search/?api=1&query=Khu+Sinh+th%C3%A1i+S%C3%B4ng+Qu%C3%AA+Ti%C3%AAn+Thanh+Ti%C3%AAn+L%C3%A3ng+H%E1%BA%A3i+Ph%C3%B2ng"
+                               target="_blank" rel="noopener noreferrer"
+                               class="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full bg-burgundy text-white text-xs font-sans font-semibold tracking-wider hover:opacity-90 transition shadow">
+                                <i class="fa-solid fa-map-location-dot"></i> Xem Bản Đồ Chỉ Đường
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 5: LỊCH THÁNG 11/2026 & ĐỒNG HỒ ĐẾM NGƯỢC (02/11 HOẶC 07/11) -->
+            <section id="sec-countdown" class="relative px-5 py-8 reveal-item">
+                <button type="button" onclick="toggleSectionVisibility('sec-countdown')" class="admin-only-control absolute top-2 right-4 z-20 px-2.5 py-1 rounded-lg bg-burgundy text-white text-xs">
+                    <i class="fa-solid fa-eye-slash mr-1"></i> Ẩn mục này
+                </button>
+
+                <!-- Bright Ivory & Gold Countdown Box -->
+                <div class="bg-champagne border-2 border-gold/60 rounded-3xl p-6 sm:p-8 text-center shadow-md">
+                    <p data-editable="calendarTitle" class="text-xs uppercase tracking-[0.3em] text-goldLight font-sans font-semibold">
+                        Tháng 11 Năm 2026
+                    </p>
+                    <h3 id="countdownTargetTitle" data-editable="countdownTargetTitle" class="font-script text-3xl sm:text-4xl text-burgundy mt-1 mb-4">
+                        Đếm Ngược Ngày Chung Đôi (02/11/2026)
+                    </h3>
+
+                    <!-- Mini November 2026 Calendar (Nov 1 2026 is Sunday) -->
+                    <div class="max-w-xs mx-auto bg-white rounded-2xl p-4 border border-gold/40 mb-6 shadow-sm">
+                        <div class="grid grid-cols-7 gap-1 text-[11px] font-sans font-semibold text-goldLight uppercase pb-2 border-b border-gold/25">
+                            <span>T2</span><span>T3</span><span>T4</span><span>T5</span><span>T6</span><span>T7</span><span class="text-burgundy">CN</span>
+                        </div>
+                        <div class="grid grid-cols-7 gap-1 text-xs font-sans pt-2 text-ink">
+                            <!-- Nov 1, 2026 is Sunday -> 6 empty slots for Mon-Sat -->
+                            <span></span><span></span><span></span><span></span><span></span><span></span>
+                            <span class="py-1.5">1</span>
+                            <!-- Nov 2 (Monday) - Groom's Wedding Day -->
+                            <span id="calDay02" class="py-1.5 rounded-full bg-burgundy text-white font-bold relative shadow">
+                                2
+                                <i class="fa-solid fa-heart text-[8px] text-amber-200 absolute -top-1 -right-0.5"></i>
+                            </span>
+                            <span class="py-1.5">3</span>
+                            <span class="py-1.5">4</span>
+                            <span class="py-1.5">5</span>
+                            <span class="py-1.5">6</span>
+                            <!-- Nov 7 (Saturday) - Bride's Wedding Day -->
+                            <span id="calDay07" class="py-1.5 rounded-full bg-gold/40 text-burgundy font-bold relative">
+                                7
+                                <i class="fa-solid fa-heart text-[8px] text-burgundy absolute -top-1 -right-0.5"></i>
+                            </span>
+                            <span class="py-1.5">8</span>
+                            <span class="py-1.5">9</span><span class="py-1.5">10</span><span class="py-1.5">11</span><span class="py-1.5">12</span><span class="py-1.5">13</span><span class="py-1.5">14</span><span class="py-1.5">15</span>
+                            <span class="py-1.5">16</span><span class="py-1.5">17</span><span class="py-1.5">18</span><span class="py-1.5">19</span><span class="py-1.5">20</span><span class="py-1.5">21</span><span class="py-1.5">22</span>
+                            <span class="py-1.5">23</span><span class="py-1.5">24</span><span class="py-1.5">25</span><span class="py-1.5">26</span><span class="py-1.5">27</span><span class="py-1.5">28</span><span class="py-1.5">29</span>
+                            <span class="py-1.5">30</span>
+                        </div>
+                    </div>
+
+                    <!-- Live Countdown Boxes -->
+                    <div class="grid grid-cols-4 gap-2.5 max-w-sm mx-auto">
+                        <div class="bg-white border border-gold/50 rounded-2xl py-3 px-2 shadow-sm">
+                            <span id="cdDays" class="block font-display text-2xl sm:text-3xl font-bold text-burgundy">00</span>
+                            <span data-editable="cdDaysLabel" class="text-[11px] uppercase tracking-wider text-ink/70 font-sans">Ngày</span>
+                        </div>
+                        <div class="bg-white border border-gold/50 rounded-2xl py-3 px-2 shadow-sm">
+                            <span id="cdHours" class="block font-display text-2xl sm:text-3xl font-bold text-burgundy">00</span>
+                            <span data-editable="cdHoursLabel" class="text-[11px] uppercase tracking-wider text-ink/70 font-sans">Giờ</span>
+                        </div>
+                        <div class="bg-white border border-gold/50 rounded-2xl py-3 px-2 shadow-sm">
+                            <span id="cdMinutes" class="block font-display text-2xl sm:text-3xl font-bold text-burgundy">00</span>
+                            <span data-editable="cdMinutesLabel" class="text-[11px] uppercase tracking-wider text-ink/70 font-sans">Phút</span>
+                        </div>
+                        <div class="bg-white border border-gold/50 rounded-2xl py-3 px-2 shadow-sm">
+                            <span id="cdSeconds" class="block font-display text-2xl sm:text-3xl font-bold text-burgundy">00</span>
+                            <span data-editable="cdSecondsLabel" class="text-[11px] uppercase tracking-wider text-ink/70 font-sans">Giây</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 6: ALBUM 10 TẤM ẢNH ĐẸP NHẤT (TÙY CHỈNH KHUNG & KHÔNG TỰ CẮT ẢNH) -->
+            <section id="sec-album" class="relative px-5 py-8 reveal-item">
+                <button type="button" onclick="toggleSectionVisibility('sec-album')" class="admin-only-control absolute top-2 right-4 z-20 px-2.5 py-1 rounded-lg bg-burgundy text-white text-xs">
+                    <i class="fa-solid fa-eye-slash mr-1"></i> Ẩn mục này
+                </button>
+
+                <div class="text-center mb-6">
+                    <p data-editable="albumSectionSub" class="text-xs uppercase tracking-[0.3em] text-goldLight font-sans font-semibold">
+                        Moments of Love
+                    </p>
+                    <h2 data-editable="albumSectionTitle" class="font-script text-4xl sm:text-5xl text-burgundy mt-1">
+                        Album Hình Cưới
+                    </h2>
+                    <p data-editable="albumSectionDesc" class="text-sm text-ink/75 italic mt-1">
+                        Những khoảnh khắc ngọt ngào nhất của Quang Anh &amp; Thanh Thư
+                    </p>
+
+                    <!-- Admin Quick Helper for 10 Drive Photos -->
+                    <div class="admin-only-block hidden mt-3 p-3 rounded-2xl bg-amber-50 border border-amber-300 text-xs text-ink max-w-md mx-auto">
+                        <p class="font-semibold text-burgundy mb-1">
+                            <i class="fa-solid fa-images mr-1"></i> Quản lý 10 khung ảnh cưới:
+                        </p>
+                        <p class="mb-2">Bấm vào nút <b>"Chỉnh ảnh / Khung"</b> trên từng tấm ảnh để tải ảnh từ máy hoặc dán link ảnh Google Drive, chọn <b>"Nguyên bản (Không cắt)"</b>, xoay hoặc kéo thả căn góc.</p>
+                        <div class="flex flex-wrap justify-center gap-2">
+                            <a href="https://drive.google.com/drive/u/2/folders/1txbYele423BjQY4y_1DGn5OJ3G_YzHRs" target="_blank" rel="noopener noreferrer"
+                               class="px-3 py-1.5 rounded-xl bg-burgundy text-white font-semibold">
+                                <i class="fa-brands fa-google-drive mr-1"></i> Mở Thư Mục Drive 10 Ảnh
+                            </a>
+                            <button type="button" onclick="setAllPhotosNaturalNoCrop()" class="px-3 py-1.5 rounded-xl bg-emerald-700 text-white font-semibold">
+                                <i class="fa-solid fa-expand mr-1"></i> Giữ nguyên tỉ lệ gốc tất cả ảnh
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10 Photo Slots Grid -->
+                <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <!-- Populated dynamically by JS -->
+                </div>
+            </section>
+
+            <!-- SECTION 7: LỜI CHÚC MỪNG (Đúng chữ "Lời chúc mừng", không có lời chúc giả) -->
+            <section id="sec-wishes" class="relative px-5 py-8 reveal-item">
+                <button type="button" onclick="toggleSectionVisibility('sec-wishes')" class="admin-only-control absolute top-2 right-4 z-20 px-2.5 py-1 rounded-lg bg-burgundy text-white text-xs">
+                    <i class="fa-solid fa-eye-slash mr-1"></i> Ẩn mục này
+                </button>
+
+                <div class="bg-champagne/80 border border-gold/60 rounded-3xl p-6 sm:p-8 shadow-sm">
+                    <div class="text-center mb-5">
+                        <p data-editable="wishSubLabel" class="text-xs uppercase tracking-[0.28em] text-goldLight font-sans font-semibold">
+                            Sổ Lưu Bút
+                        </p>
+                        <h2 data-editable="wishMainHeading" class="font-script text-4xl sm:text-5xl text-burgundy mt-1">
+                            Lời chúc mừng
+                        </h2>
+                        <p data-editable="wishDescText" class="text-sm text-ink/75 italic mt-1">
+                            Hãy gửi những lời chúc tốt đẹp nhất đến Trần Quang Anh &amp; Trần Thị Thanh Thư nhé!
+                        </p>
+                    </div>
+
+                    <!-- Guest Wish Form -->
+                    <form id="wishForm" class="space-y-3 max-w-md mx-auto">
+                        <div>
+                            <input id="wishSenderName" type="text" required placeholder="Tên của bạn *"
+                                class="w-full px-4 py-2.5 rounded-xl bg-white border border-gold/50 text-sm text-ink focus:outline-none focus:border-burgundy">
+                        </div>
+                        <div>
+                            <textarea id="wishMessageInput" rows="3" required placeholder="Nhập lời chúc mừng của bạn..."
+                                class="w-full px-4 py-2.5 rounded-xl bg-white border border-gold/50 text-sm text-ink focus:outline-none focus:border-burgundy"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full py-3 rounded-xl bg-burgundy hover:opacity-95 text-white font-sans font-semibold text-xs uppercase tracking-widest transition shadow-md">
+                            <i class="fa-regular fa-paper-plane mr-1.5"></i> Gửi Lời Chúc Mừng
+                        </button>
+                    </form>
+
+                    <!-- Wishes Feed -->
+                    <div id="wishesListContainer" class="mt-6 space-y-3 max-h-80 overflow-y-auto pr-1">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 8: FOOTER & SUBTLE LOCK ICON FOR ADMIN -->
+            <footer class="px-6 pt-8 pb-12 text-center relative">
+                <div class="w-24 h-[1px] bg-gold/60 mx-auto mb-5"></div>
+                <h2 data-editable="footerThankYou" class="font-script text-4xl sm:text-5xl text-burgundy">
+                    Thank You!
+                </h2>
+                <p data-editable="footerSubText" class="text-sm text-ink/75 italic mt-1 max-w-sm mx-auto">
+                    Sự hiện diện của Quý khách là niềm vinh hạnh lớn lao của gia đình chúng tôi.
+                </p>
+                <p data-editable="footerCoupleNames" class="font-display text-xs uppercase tracking-[0.25em] text-goldLight font-semibold mt-4">
+                    Trần Quang Anh &amp; Trần Thị Thanh Thư • 2026
+                </p>
+
+                <!-- Subtle Lock Icon (Invisible hint, no password shown) -->
+                <div class="mt-6 flex justify-center">
+                    <button id="subtleAdminLockBtn" type="button" aria-label="Quản trị thiệp"
+                        class="text-ink/20 hover:text-burgundy/60 transition p-2 rounded-full text-xs">
+                        <i class="fa-solid fa-lock"></i>
+                    </button>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- ==========================================
+         9. LIGHTBOX XEM ẢNH PHÓNG TO
+    =========================================== -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <button type="button" onclick="closeLightbox()" class="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/20 text-white text-xl flex items-center justify-center hover:bg-white/40">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="lightboxImg" src="" alt="Phóng to ảnh cưới" class="max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl">
+    </div>
+
+    <!-- ==========================================
+         10. MODAL NHẬP MẬT KHẨU CHỈNH SỬA (KHÔNG HIỂN THỊ GỢI Ý MẬT KHẨU)
+    =========================================== -->
+    <div id="passwordModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+        <div class="bg-white border-2 border-gold rounded-3xl max-w-sm w-full p-6 text-center shadow-2xl">
+            <div class="w-12 h-12 rounded-full bg-burgundy/10 text-burgundy flex items-center justify-center mx-auto mb-3">
+                <i class="fa-solid fa-key text-lg"></i>
+            </div>
+            <h3 class="font-display text-lg font-bold text-burgundy">Mở Khóa Chỉnh Sửa Thiệp</h3>
+            <p class="text-xs text-ink/70 mt-1 mb-4">Chỉ dành riêng cho Cô Dâu &amp; Chú Rể</p>
+            <form id="passwordForm" class="space-y-3">
+                <input id="adminPasswordInput" type="password" placeholder="Nhập mã bảo mật..." autocomplete="off"
+                    class="w-full px-4 py-2.5 rounded-xl bg-champagne border border-gold text-center text-base tracking-widest focus:outline-none focus:border-burgundy">
+                <p id="passwordErrorMsg" class="text-xs text-red-600 hidden">Mã bảo mật chưa chính xác!</p>
+                <div class="flex gap-2 pt-1">
+                    <button type="button" onclick="closePasswordModal()" class="flex-1 py-2.5 rounded-xl bg-gray-100 text-ink text-xs font-semibold">
+                        Hủy
+                    </button>
+                    <button type="submit" class="flex-1 py-2.5 rounded-xl bg-burgundy text-white text-xs font-semibold">
+                        Xác Nhận
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         11. PHOTO EDITOR MODAL (KÉO THẢ TRỰC TIẾP, LĂN CHUỘT ZOOM, XOAY, GIỮ NGUYÊN ĐỊNH DẠNG)
+    =========================================== -->
+    <div id="photoEditorModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto">
+        <div class="bg-white border-2 border-gold rounded-3xl max-w-lg w-full p-5 sm:p-6 shadow-2xl my-auto">
+            <div class="flex items-center justify-between border-b border-gold/30 pb-3 mb-4">
+                <div>
+                    <h3 class="font-display text-lg font-bold text-burgundy">
+                        <i class="fa-solid fa-sliders mr-1.5"></i> Căn Chỉnh &amp; Phóng To / Thu Nhỏ Ảnh
+                    </h3>
+                    <p class="text-[11px] text-ink/70">Mẹo: Dùng chuột hoặc ngón tay <b>kéo trực tiếp trên ảnh</b> để căn vị trí, <b>lăn chuột</b> để phóng to/thu nhỏ.</p>
+                </div>
+                <button type="button" onclick="closePhotoEditor()" class="text-ink/60 hover:text-burgundy text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Upload or Paste Link -->
+            <div class="space-y-3 mb-4">
+                <div class="flex flex-wrap gap-2">
+                    <label class="flex-1 cursor-pointer bg-burgundy hover:opacity-95 text-white text-xs font-semibold py-2.5 px-3 rounded-xl text-center transition">
+                        <i class="fa-solid fa-upload mr-1"></i> Tải Ảnh Từ Máy Lên
+                        <input id="photoFileInput" type="file" accept="image/*" class="hidden">
+                    </label>
+                </div>
+                <div>
+                    <label class="block text-[11px] font-semibold text-ink/80 mb-1">Hoặc dán link ảnh (hỗ trợ cả link Google Drive chia sẻ công khai):</label>
+                    <div class="flex gap-2">
+                        <input id="photoUrlInput" type="text" placeholder="https://drive.google.com/file/d/... hoặc link ảnh" class="flex-1 px-3 py-2 rounded-xl bg-champagne border border-gold/50 text-xs">
+                        <button type="button" onclick="applyPhotoUrlInput()" class="px-3 py-2 bg-gold text-white font-semibold text-xs rounded-xl">Áp dụng</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Drag & Wheel Zoom Stage -->
+            <div id="interactiveCropStage" class="interactive-crop-stage bg-champagne rounded-2xl p-3 mb-4 flex items-center justify-center overflow-hidden min-h-[250px] max-h-[350px] relative border border-gold/40">
+                <div id="editorPreviewFrame" class="w-full max-w-[260px] overflow-hidden relative bg-white border border-gold/50 rounded-xl pointer-events-none shadow">
+                    <img id="editorPreviewImg" src="" alt="Preview" draggable="false" class="w-full h-full transition-transform duration-75 select-none">
+                </div>
+                <span class="absolute bottom-2 right-3 bg-white/90 text-burgundy border border-gold/40 text-[10px] px-2.5 py-1 rounded-full pointer-events-none shadow-sm">
+                    <i class="fa-solid fa-arrows-up-down-left-right mr-1"></i>Kéo ảnh để di chuyển • Lăn chuột để Zoom
+                </span>
+            </div>
+
+            <!-- Frame & Fit Controls -->
+            <div class="space-y-3 text-xs">
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-semibold text-ink mb-1">Chế độ hiển thị ảnh:</label>
+                        <select id="editorFitSelect" onchange="updateEditorLivePreview()" class="w-full px-3 py-2 rounded-xl bg-champagne border border-gold/50">
+                            <option value="natural">Nguyên bản (Không cắt ảnh)</option>
+                            <option value="contain">Vừa khung (Contain - Không cắt)</option>
+                            <option value="cover">Lấp đầy khung (Cover)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-ink mb-1">Kiểu khung ảnh:</label>
+                        <select id="editorFrameSelect" onchange="updateEditorLivePreview()" class="w-full px-3 py-2 rounded-xl bg-champagne border border-gold/50">
+                            <option value="frame-natural">Tự động theo ảnh gốc</option>
+                            <option value="frame-portrait">Khung dọc (3:4)</option>
+                            <option value="frame-landscape">Khung ngang (4:3)</option>
+                            <option value="frame-square">Khung vuông (1:1)</option>
+                            <option value="frame-arch">Khung vòm (Arch)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Rotate & Scale Sliders -->
+                <div class="grid grid-cols-2 gap-3 pt-1">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-semibold">Phóng to / Thu nhỏ:</span>
+                            <span id="scaleValLabel">100%</span>
+                        </div>
+                        <input id="editorScaleRange" type="range" min="30" max="300" value="100" oninput="updateEditorLivePreview()" class="w-full accent-burgundy">
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-semibold">Góc xoay:</span>
+                            <span id="rotateValLabel">0°</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <button type="button" onclick="rotateEditorStep(-90)" class="px-2 py-1 bg-champagne border border-gold rounded text-[11px]"><i class="fa-solid fa-rotate-left"></i> -90°</button>
+                            <input id="editorRotateRange" type="range" min="-180" max="180" value="0" oninput="updateEditorLivePreview()" class="flex-1 accent-burgundy">
+                            <button type="button" onclick="rotateEditorStep(90)" class="px-2 py-1 bg-champagne border border-gold rounded text-[11px]">+90° <i class="fa-solid fa-rotate-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pan X / Pan Y Sliders -->
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-semibold">Dịch ngang (Trái/Phải):</span>
+                            <span id="panXValLabel">0%</span>
+                        </div>
+                        <input id="editorPanXRange" type="range" min="-150" max="150" value="0" oninput="updateEditorLivePreview()" class="w-full accent-burgundy">
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="font-semibold">Dịch dọc (Lên/Xuống):</span>
+                            <span id="panYValLabel">0%</span>
+                        </div>
+                        <input id="editorPanYRange" type="range" min="-150" max="150" value="0" oninput="updateEditorLivePreview()" class="w-full accent-burgundy">
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center gap-2 mt-5 pt-3 border-t border-gold/30">
+                <button type="button" onclick="resetPhotoEditorTransform()" class="px-3 py-2 rounded-xl bg-gray-100 text-ink text-xs font-semibold">
+                    <i class="fa-solid fa-rotate-left mr-1"></i> Đặt lại mặc định
+                </button>
+                <div class="flex gap-2">
+                    <button type="button" onclick="closePhotoEditor()" class="px-4 py-2 rounded-xl bg-gray-100 text-ink text-xs font-semibold">
+                        Đóng
+                    </button>
+                    <button type="button" onclick="savePhotoEditorChanges()" class="px-5 py-2 rounded-xl bg-burgundy text-white text-xs font-semibold shadow">
+                        <i class="fa-solid fa-check mr-1"></i> Áp Dụng Khung Này
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         12. ADMIN DRAWER: TẠO 3 MẪU THIỆP ĐỘC LẬP, CHỈNH MÀU THIỆP & PHÔNG CHỮ, HIỆU ỨNG CUỘN
+    =========================================== -->
+    <div id="adminDrawerModal" class="fixed inset-0 z-50 hidden justify-end bg-black/50 backdrop-blur-sm">
+        <div class="bg-white w-full max-w-xl h-full overflow-y-auto p-5 sm:p-7 shadow-2xl border-l-2 border-gold text-ink">
+            <div class="flex items-center justify-between border-b border-gold/40 pb-4 mb-5">
+                <div>
+                    <h2 class="font-display text-xl font-bold text-burgundy">
+                        <i class="fa-solid fa-sliders mr-1.5"></i> Quản Trị Thiệp &amp; Tạo Link Gửi Khách
+                    </h2>
+                    <p class="text-xs text-ink/70 mt-0.5">Khách mời không nhìn thấy bảng này. Mọi chữ trên thiệp đều nhấp vào sửa trực tiếp được.</p>
+                </div>
+                <button type="button" onclick="closeAdminDrawer()" class="w-9 h-9 rounded-full bg-burgundy/10 text-burgundy flex items-center justify-center hover:bg-burgundy hover:text-white transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- PART A: TẠO & CHIA SẺ 3 MẪU THIỆP ĐỘC LẬP + LỜI MỜI MẪU CHUẨN -->
+            <div class="bg-champagne/60 rounded-2xl p-4 sm:p-5 border-2 border-gold shadow-sm mb-6">
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="px-2.5 py-0.5 rounded-full bg-burgundy text-white text-[11px] font-bold uppercase">Quan trọng</span>
+                    <h3 class="font-display text-base font-bold text-burgundy">Tạo Lời Mời &amp; Link Thiệp Thu Gọn Cho Từng Khách</h3>
+                </div>
+                <p class="text-xs text-ink/75 leading-relaxed mb-4">
+                    Tự động tạo <b>cấu trúc lời mời kèm link thu gọn</b> theo đúng tên khách và lựa chọn Nhà Trai / Nhà Gái. Gửi cho <b>Anh A</b> xong đổi sang <b>Chị B</b> hoàn toàn độc lập, không bị đè cấu hình!
+                </p>
+
+                <!-- Quick 3 Presets Buttons -->
+                <label class="block text-xs font-bold text-ink mb-2">Chọn nhanh 3 mẫu thiệp chuẩn:</label>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-4">
+                    <button type="button" onclick="applyPresetCard(1)" class="p-2.5 rounded-xl border-2 border-burgundy/30 hover:border-burgundy bg-white text-left transition">
+                        <span class="block text-xs font-bold text-burgundy">Thiệp 1: Nhà Trai (Kính mời)</span>
+                        <span class="block text-[11px] text-ink/70 mt-0.5">• Trân trọng kính mời<br>• Đếm ngược 02/11<br>• Lễ Thành Hôn</span>
+                    </button>
+                    <button type="button" onclick="applyPresetCard(2)" class="p-2.5 rounded-xl border-2 border-burgundy/30 hover:border-burgundy bg-white text-left transition">
+                        <span class="block text-xs font-bold text-burgundy">Thiệp 2: Nhà Trai (Thân mời)</span>
+                        <span class="block text-[11px] text-ink/70 mt-0.5">• Trân trọng thân mời<br>• Đếm ngược 02/11<br>• Lễ Thành Hôn</span>
+                    </button>
+                    <button type="button" onclick="applyPresetCard(3)" class="p-2.5 rounded-xl border-2 border-burgundy/30 hover:border-burgundy bg-white text-left transition">
+                        <span class="block text-xs font-bold text-burgundy">Thiệp 3: Nhà Gái (Vu Quy)</span>
+                        <span class="block text-[11px] text-ink/70 mt-0.5">• Tùy chọn Kính/Thân mời<br>• Đếm ngược 07/11<br>• Lễ Vu Quy</span>
+                    </button>
+                </div>
+
+                <!-- Detailed 3 Selectors + Guest Name -->
+                <div class="space-y-3 text-xs">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-semibold text-ink mb-1">1. Chọn Lời Mời:</label>
+                            <select id="genGreetingSelect" onchange="updateShareLinkBuilder()" class="w-full px-3 py-2 rounded-xl bg-white border border-gold">
+                                <option value="kinh">Trân trọng kính mời</option>
+                                <option value="than">Trân trọng thân mời</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-ink mb-1">2. Đồng Hồ Đếm Ngược:</label>
+                            <select id="genCountdownSelect" onchange="updateShareLinkBuilder()" class="w-full px-3 py-2 rounded-xl bg-white border border-gold">
+                                <option value="0211">Đếm ngược đến 02/11/2026 (17h30 - Nhà Trai)</option>
+                                <option value="0711">Đếm ngược đến 07/11/2026 (10h00 - Nhà Gái)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-semibold text-ink mb-1">3. Lịch Trình Hôn Lễ hiển thị:</label>
+                            <select id="genEventSelect" onchange="updateShareLinkBuilder()" class="w-full px-3 py-2 rounded-xl bg-white border border-gold">
+                                <option value="thanhhon">Lễ Thành Hôn (Nhà Trai - 17:30 02/11/2026)</option>
+                                <option value="vuquy">Lễ Vu Quy (Nhà Gái - 10:00 07/11/2026)</option>
+                                <option value="both">Hiện cả 2 Lễ (Thành Hôn &amp; Vu Quy)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-ink mb-1">4. Tên Khách Mời:</label>
+                            <input id="genGuestNameInput" type="text" value="Quỳnh Anh" oninput="updateShareLinkBuilder()" placeholder="VD: Quỳnh Anh, Anh Tuấn..." class="w-full px-3 py-2 rounded-xl bg-white border border-gold font-semibold">
+                        </div>
+                    </div>
+
+                    <!-- Compact URL Preview -->
+                    <div class="pt-1">
+                        <label class="block font-semibold text-ink/80 mb-1">Link thiệp thu gọn:</label>
+                        <div class="flex gap-2">
+                            <input id="generatedShareUrlInput" type="text" readonly class="flex-1 px-3 py-1.5 rounded-xl bg-white border border-gold/60 text-[11px] text-ink select-all">
+                            <button type="button" onclick="copyOnlyShortLink()" class="px-3 py-1.5 rounded-xl bg-gold/25 hover:bg-gold hover:text-white text-ink font-semibold text-[11px] shrink-0 transition">
+                                Chỉ chép Link
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Full Formatted Invitation Message Preview -->
+                    <div class="pt-1">
+                        <label class="block font-semibold text-burgundy mb-1">Nội dung tin nhắn mời + Link (Có thể sửa trực tiếp):</label>
+                        <textarea id="generatedFullInviteText" rows="5" class="w-full px-3 py-2.5 rounded-xl bg-white border border-gold text-xs text-ink leading-relaxed focus:outline-none focus:border-burgundy"></textarea>
+                        <div class="flex flex-wrap justify-between items-center gap-2 mt-2">
+                            <button type="button" onclick="previewGeneratedConfigOnScreen()" class="text-xs text-burgundy underline font-semibold">
+                                <i class="fa-solid fa-eye mr-1"></i> Xem thử trên thiệp
+                            </button>
+                            <div class="flex items-center gap-2">
+                                <span id="copySuccessBadge" class="text-xs text-emerald-700 font-semibold hidden">Đã sao chép!</span>
+                                <button type="button" onclick="copyGeneratedShareLink()" class="px-4 py-2.5 rounded-xl bg-burgundy hover:opacity-95 text-white font-semibold text-xs shadow-md transition">
+                                    <i class="fa-regular fa-copy mr-1"></i> Sao chép Lời Mời + Link
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PART B: TÙY CHỈNH MÀU SẮC THIỆP & PHÔNG CHỮ (MẶC ĐỊNH TRẮNG SÁNG AN TOÀN) -->
+            <div class="bg-champagne/50 rounded-2xl p-4 sm:p-5 border border-gold/60 shadow-sm mb-6 text-xs">
+                <h3 class="font-display text-base font-bold text-burgundy mb-3">
+                    <i class="fa-solid fa-palette mr-1"></i> Màu Sắc Thiệp &amp; Phông Chữ
+                </h3>
+
+                <!-- Quick Bright Safe Color Themes -->
+                <label class="block font-semibold text-ink mb-2">Chọn nhanh bảng màu sáng sang trọng:</label>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-4">
+                    <button type="button" onclick="applyColorPalette('#8C2D2D', '#681D1D', '#FFFFFF', '#C5A059', '#3D312A')" class="p-2 rounded-xl border border-gold flex items-center gap-2 bg-white hover:scale-105 transition">
+                        <span class="w-5 h-5 rounded-full bg-[#FFFFFF] border-2 border-[#C5A059] shrink-0"></span>
+                        <span class="text-[11px] font-semibold">Trắng Tinh Khôi (Mặc định)</span>
+                    </button>
+                    <button type="button" onclick="applyColorPalette('#9E3B4B', '#732431', '#FFFDFB', '#D4AF37', '#3D2B2E')" class="p-2 rounded-xl border border-gold/50 flex items-center gap-2 bg-[#FFFDFB] hover:scale-105 transition">
+                        <span class="w-5 h-5 rounded-full bg-[#9E3B4B] border border-gold shrink-0"></span>
+                        <span class="text-[11px] font-semibold">Trắng Hồng Pastel</span>
+                    </button>
+                    <button type="button" onclick="applyColorPalette('#3A5A40', '#263E2A', '#FFFFFF', '#C2A366', '#2B352C')" class="p-2 rounded-xl border border-gold/50 flex items-center gap-2 bg-white hover:scale-105 transition">
+                        <span class="w-5 h-5 rounded-full bg-[#3A5A40] border border-gold shrink-0"></span>
+                        <span class="text-[11px] font-semibold">Trắng Xanh Sage</span>
+                    </button>
+                    <button type="button" onclick="applyColorPalette('#7A543E', '#543827', '#FAF8F5', '#C59B5F', '#382B24')" class="p-2 rounded-xl border border-gold/50 flex items-center gap-2 bg-[#FAF8F5] hover:scale-105 transition">
+                        <span class="w-5 h-5 rounded-full bg-[#7A543E] border border-gold shrink-0"></span>
+                        <span class="text-[11px] font-semibold">Kem Vàng Hoàng Gia</span>
+                    </button>
+                    <button type="button" onclick="applyColorPalette('#9E1B1B', '#6E1010', '#FFF9F5', '#D4AF37', '#2E1A1A')" class="p-2 rounded-xl border border-gold/50 flex items-center gap-2 bg-[#FFF9F5] hover:scale-105 transition">
+                        <span class="w-5 h-5 rounded-full bg-[#9E1B1B] border border-gold shrink-0"></span>
+                        <span class="text-[11px] font-semibold">Trắng Đỏ Hỷ Sự</span>
+                    </button>
+                </div>
+
+                <!-- Individual Custom Color Pickers -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+                    <div>
+                        <label class="block font-semibold mb-1 text-[11px]">Màu điểm nhấn:</label>
+                        <input id="pickerPrimaryColor" type="color" value="#8C2D2D" oninput="updateCustomColorsFromPickers()" class="w-full h-9 rounded-lg cursor-pointer border border-gold">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1 text-[11px]">Màu nền thiệp:</label>
+                        <input id="pickerBgColor" type="color" value="#FFFFFF" oninput="updateCustomColorsFromPickers()" class="w-full h-9 rounded-lg cursor-pointer border border-gold">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1 text-[11px]">Màu viền vàng:</label>
+                        <input id="pickerGoldColor" type="color" value="#C5A059" oninput="updateCustomColorsFromPickers()" class="w-full h-9 rounded-lg cursor-pointer border border-gold">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1 text-[11px]">Màu chữ chính:</label>
+                        <input id="pickerInkColor" type="color" value="#3D312A" oninput="updateCustomColorsFromPickers()" class="w-full h-9 rounded-lg cursor-pointer border border-gold">
+                    </div>
+                </div>
+
+                <!-- Font Selectors -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-gold/25">
+                    <div>
+                        <label class="block font-semibold mb-1">Phông chữ Tên Dâu Rể (Chữ ký):</label>
+                        <select id="fontScriptSelect" onchange="updateCustomFonts()" class="w-full px-3 py-2 rounded-xl bg-white border border-gold">
+                            <option value="Great Vibes">Great Vibes (Mềm mại chuẩn mẫu)</option>
+                            <option value="Alex Brush">Alex Brush (Thanh lịch)</option>
+                            <option value="Dancing Script">Dancing Script (Hiện đại)</option>
+                            <option value="Allura">Allura (Bay bổng)</option>
+                            <option value="Pinyon Script">Pinyon Script (Quý tộc cổ điển)</option>
+                            <option value="Playfair Display">Playfair Display (Chữ in sang trọng)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Phông chữ Nội dung thiệp:</label>
+                        <select id="fontBodySelect" onchange="updateCustomFonts()" class="w-full px-3 py-2 rounded-xl bg-white border border-gold">
+                            <option value="Cormorant Garamond">Cormorant Garamond (Cổ điển)</option>
+                            <option value="Be Vietnam Pro">Be Vietnam Pro (Hiện đại, rõ nét)</option>
+                            <option value="Montserrat">Montserrat (Thanh thoát)</option>
+                            <option value="Lora">Lora (Trang nhã)</option>
+                            <option value="Merriweather">Merriweather (Đậm đà)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Optional Custom Wax Seal Upload -->
+                <div class="mt-4 pt-3 border-t border-gold/25 flex flex-wrap items-center justify-between gap-2">
+                    <div>
+                        <span class="font-semibold block">Con dấu sáp mở thiệp:</span>
+                        <span class="text-[11px] text-ink/70">Đang dùng Dấu Sáp Trái Tim Đỏ 3D trên phong bì trắng kem.</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <label class="cursor-pointer px-3 py-1.5 rounded-xl bg-burgundy text-white font-semibold text-[11px]">
+                            Tải ảnh sáp riêng
+                            <input id="customWaxUploadInput" type="file" accept="image/*" class="hidden">
+                        </label>
+                        <button type="button" onclick="resetDefaultHeartSeal()" class="px-2.5 py-1.5 rounded-xl bg-gray-200 text-ink text-[11px] font-semibold">
+                            Dùng sáp Trái Tim 3D
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PART C: CHỌN HIỆU ỨNG CUỘN (SCROLL EFFECTS) -->
+            <div class="bg-champagne/50 rounded-2xl p-4 sm:p-5 border border-gold/60 shadow-sm mb-6 text-xs">
+                <h3 class="font-display text-base font-bold text-burgundy mb-3">
+                    <i class="fa-solid fa-wand-sparkles mr-1"></i> Tùy Chọn Hiệu Ứng Cuộn &amp; Cánh Hoa
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-semibold mb-1">Kiểu hiệu ứng cuộn trang:</label>
+                        <select id="adminScrollEffectSelect" onchange="changeScrollEffectStyle(this.value)" class="w-full px-3 py-2 rounded-xl bg-white border border-gold">
+                            <option value="fade-up">Trượt nhẹ từ dưới lên (Fade Up)</option>
+                            <option value="zoom">Phóng mượt sang trọng (Zoom Reveal)</option>
+                            <option value="slide">Trượt ngang 2 bên (Slide)</option>
+                            <option value="flip">Lật 3D (3D Flip)</option>
+                            <option value="none">Hiện ngay không hiệu ứng</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Hiệu ứng cánh hoa hồng rơi:</label>
+                        <select id="adminPetalsToggleSelect" onchange="togglePetalsEffect(this.value)" class="w-full px-3 py-2 rounded-xl bg-white border border-gold">
+                            <option value="on">Bật cánh hoa rơi lãng mạn</option>
+                            <option value="off">Tắt cánh hoa rơi</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PART D: TÙY CHỈNH NHẠC NỀN -->
+            <div class="bg-champagne/50 rounded-2xl p-4 sm:p-5 border border-gold/60 shadow-sm mb-6 text-xs">
+                <h3 class="font-display text-base font-bold text-burgundy mb-2">
+                    <i class="fa-solid fa-music mr-1"></i> Nhạc Nền Thiệp Cưới
+                </h3>
+                <p class="text-ink/70 mb-2">Mặc định đã cài bài nhạc bạn yêu cầu: <code>https://youtu.be/JgTZvDbaTtg</code></p>
+                <div class="space-y-2">
+                    <input id="adminYoutubeUrlInput" type="text" value="https://youtu.be/JgTZvDbaTtg?si=CqZmuP9KdOsWftWA" placeholder="Dán link YouTube hoặc link file .mp3..." class="w-full px-3 py-2 rounded-xl bg-white border border-gold">
+                    <button type="button" onclick="applyCustomMusicInput()" class="px-4 py-2 rounded-xl bg-burgundy text-white font-semibold">
+                        Cập Nhật Nhạc Nền
+                    </button>
+                </div>
+            </div>
+
+            <!-- PART E: KHÔI PHỤC CÁC MỤC ĐÃ ẨN -->
+            <div class="bg-champagne/50 rounded-2xl p-4 sm:p-5 border border-gold/60 shadow-sm mb-6 text-xs">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="font-display text-sm font-bold text-burgundy">Khôi phục các mục đã ẩn</h3>
+                        <p class="text-ink/70">Nếu bạn lỡ bấm ẩn một mục nào đó trên thiệp, bấm nút bên cạnh để hiện lại tất cả.</p>
+                    </div>
+                    <button type="button" onclick="restoreAllHiddenSections()" class="px-3 py-2 rounded-xl bg-gold text-white font-semibold shrink-0">
+                        Hiện lại tất cả
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         JAVASCRIPT LOGIC & CLOUD PERSISTENCE
+    =========================================== -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // --------------------------------------------------
+        // A. DEFAULT STATE (TONE TRẮNG SÁNG SANG TRỌNG - AN TOÀN)
+        // --------------------------------------------------
+        const DEFAULT_GALLERY = [
+            { id: 0, url: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85", fit: "natural", frame: "frame-natural", scale: 100, rotate: 0, panX: 0, panY: 0 },
+            { id: 1, url: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=900&q=85", fit: "natural", frame: "frame-natural", scale: 100, rotate: 0, panX: 0, panY: 0 },
+            { id: 2, url: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85", fit: "natural", frame: "frame-natural", scale: 100, rotate: 0, panX: 0, panY: 0 },
+            { id: 3, url: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=85", fit: "natural", frame: "frame-natural", scale: 100, rotate: 0, panX: 0, panY: 0 },
+            { id: 4, url: "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=900&q=85", fit: "natural", frame: "frame-natural", scale: 100, rotate: 0, panX: 0, panY: 0 },
+            { id: 5, url: "https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=900&q=85", fit: "natural", frame: "frame-natural", scale: 100, rotate: 0, panX: 0, panY: 0 },
+            { id: 6, url: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85", fit: "natural", frame: "frame-natural", scale: 100, rotate: 0, panX: 0, panY: 0 },
+            { id: 7, url: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=900&q=85", fit: "natural", frame: "frame-natural", scale: 100, rotate: 0, panX: 0, panY: 0 },
+            { id: 8, url: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=85", fit: "natural", frame: "frame-natural", scale: 100, rotate: 0, panX: 0, panY: 0 },
+            { id: 9, url: "https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=900&q=85", fit: "natural", frame: "frame-natural", scale: 100, rotate: 0, panX: 0, panY: 0 }
+        ];
+
+        const state = {
+            isAdmin: false,
+            heroPhoto: {
+                url: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85",
+                fit: "cover",
+                frame: "frame-arch",
+                scale: 100,
+                rotate: 0,
+                panX: 0,
+                panY: 0
+            },
+            gallery: JSON.parse(JSON.stringify(DEFAULT_GALLERY)),
+            texts: {},
+            hiddenSections: [],
+            scrollEffect: 'fade-up',
+            petalsEnabled: 'on',
+            youtubeVideoId: 'JgTZvDbaTtg',
+            customMp3Url: '',
+            customWaxSealUrl: '',
+            theme: {
+                primary: '#8C2D2D',
+                primaryDark: '#681D1D',
+                bgCream: '#FFFFFF',
+                gold: '#C5A059',
+                ink: '#3D312A',
+                fontScript: 'Great Vibes',
+                fontBody: 'Cormorant Garamond'
+            },
+            cardConfig: {
+                greeting: 'kinh',     // 'kinh' (Trân trọng kính mời) | 'than' (Trân trọng thân mời)
+                countdown: '0211',    // '0211' (02/11/2026 17:30) | '0711' (07/11/2026 10:00)
+                event: 'both',        // 'thanhhon' | 'vuquy' | 'both'
+                guestName: ''
+            },
+            wishes: []
+        };
+
+        // --------------------------------------------------
+        // B. COMPACT URL PARAMETERS PARSER
+        // --------------------------------------------------
+        function parseUrlCardConfig() {
+            const params = new URLSearchParams(window.location.search);
+
+            const mParam = params.get('m');
+            if (mParam === '1' || mParam === 'kinh') state.cardConfig.greeting = 'kinh';
+            if (mParam === '2' || mParam === 'than') state.cardConfig.greeting = 'than';
+
+            const cParam = params.get('c') || params.get('cd');
+            if (cParam === '1' || cParam === '0211') state.cardConfig.countdown = '0211';
+            if (cParam === '2' || cParam === '0711') state.cardConfig.countdown = '0711';
+
+            const eParam = params.get('e') || params.get('ev');
+            if (eParam === '1' || eParam === 'thanhhon') state.cardConfig.event = 'thanhhon';
+            if (eParam === '2' || eParam === 'vuquy') state.cardConfig.event = 'vuquy';
+            if (eParam === '3' || eParam === 'both') state.cardConfig.event = 'both';
+
+            const guest = params.get('k') || params.get('g') || params.get('khach');
+            if (guest) state.cardConfig.guestName = guest;
+
+            const fx = params.get('fx');
+            if (fx) state.scrollEffect = fx;
+        }
+
+        function applyCardConfigToDOM() {
+            const greetingStr = state.cardConfig.greeting === 'than'
+                ? 'Trân trọng thân mời'
+                : 'Trân trọng kính mời';
+
+            const coverGreeting = document.getElementById('coverGreetingText');
+            const cardGreeting = document.getElementById('cardGreetingLabel');
+            if (coverGreeting) coverGreeting.textContent = greetingStr;
+            if (cardGreeting) cardGreeting.textContent = greetingStr;
+
+            const guestDisplay = state.cardConfig.guestName && state.cardConfig.guestName.trim() !== ''
+                ? state.cardConfig.guestName.trim()
+                : (state.texts['coverGuestName'] || 'Quý Khách');
+            const coverGuest = document.getElementById('coverGuestName');
+            const cardGuest = document.getElementById('cardGuestNameLabel');
+            if (coverGuest) coverGuest.textContent = guestDisplay;
+            if (cardGuest) cardGuest.textContent = guestDisplay;
+
+            const cardThanhHon = document.getElementById('eventCardThanhHon');
+            const cardVuQuy = document.getElementById('eventCardVuQuy');
+            const coverDateBadge = document.getElementById('coverDateBadge');
+
+            if (state.cardConfig.event === 'thanhhon') {
+                if (cardThanhHon) cardThanhHon.style.display = 'block';
+                if (cardVuQuy) cardVuQuy.style.display = 'none';
+                if (coverDateBadge) coverDateBadge.textContent = '17:30  |  02 . 11 . 2026';
+            } else if (state.cardConfig.event === 'vuquy') {
+                if (cardThanhHon) cardThanhHon.style.display = 'none';
+                if (cardVuQuy) cardVuQuy.style.display = 'block';
+                if (coverDateBadge) coverDateBadge.textContent = '10:00  |  07 . 11 . 2026';
+            } else {
+                if (cardThanhHon) cardThanhHon.style.display = 'block';
+                if (cardVuQuy) cardVuQuy.style.display = 'block';
+                if (coverDateBadge) coverDateBadge.textContent = '02 . 11 . 2026  |  07 . 11 . 2026';
+            }
+
+            const cdTitle = document.getElementById('countdownTargetTitle');
+            const cal02 = document.getElementById('calDay02');
+            const cal07 = document.getElementById('calDay07');
+
+            if (state.cardConfig.countdown === '0711') {
+                if (cdTitle && !state.texts['countdownTargetTitle']) {
+                    cdTitle.textContent = 'Đếm Ngược Ngày Chung Đôi (07/11/2026)';
+                }
+                if (cal07) cal07.className = "py-1.5 rounded-full bg-burgundy text-white font-bold relative shadow scale-110";
+                if (cal02) cal02.className = "py-1.5 rounded-full bg-gold/30 text-burgundy font-bold relative";
+            } else {
+                if (cdTitle && !state.texts['countdownTargetTitle']) {
+                    cdTitle.textContent = 'Đếm Ngược Ngày Chung Đôi (02/11/2026)';
+                }
+                if (cal02) cal02.className = "py-1.5 rounded-full bg-burgundy text-white font-bold relative shadow scale-110";
+                if (cal07) cal07.className = "py-1.5 rounded-full bg-gold/30 text-burgundy font-bold relative";
+            }
+
+            document.body.setAttribute('data-scroll-fx', state.scrollEffect || 'fade-up');
+            applyThemeToCSSVariables();
+            renderWaxSealGraphic();
+            updateCountdownTick();
+        }
+
+        // --------------------------------------------------
+        // B2. THEME COLOR & FONT CUSTOMIZATION FUNCTIONS
+        // --------------------------------------------------
+        function shadeHexColor(hex, percent) {
+            let col = (hex || '#8C2D2D').replace('#', '');
+            if (col.length === 3) col = col.split('').map(c => c + c).join('');
+            const num = parseInt(col, 16);
+            let r = (num >> 16) + percent;
+            let g = ((num >> 8) & 0x00FF) + percent;
+            let b = (num & 0x0000FF) + percent;
+            r = Math.max(0, Math.min(255, r));
+            g = Math.max(0, Math.min(255, g));
+            b = Math.max(0, Math.min(255, b));
+            return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+        }
+
+        // Guard against old dark background themes saved in localStorage
+        function sanitizeBrightTheme(themeObj) {
+            if (!themeObj) return;
+            const darkBgs = ['#1c1614', '#160909', '#000000', '#120707', '#2c221e'];
+            if (themeObj.bgCream && darkBgs.includes(themeObj.bgCream.toLowerCase())) {
+                themeObj.bgCream = '#FFFFFF';
+            }
+        }
+
+        function applyThemeToCSSVariables() {
+            const t = state.theme || {};
+            sanitizeBrightTheme(t);
+            const root = document.documentElement;
+            const primary = t.primary || '#8C2D2D';
+            const primaryDark = t.primaryDark || shadeHexColor(primary, -28);
+            const bgCream = t.bgCream || '#FFFFFF';
+            const gold = t.gold || '#C5A059';
+            const ink = t.ink || '#3D312A';
+            const fontScript = t.fontScript || 'Great Vibes';
+            const fontBody = t.fontBody || 'Cormorant Garamond';
+
+            root.style.setProperty('--primary-color', primary);
+            root.style.setProperty('--primary-dark', primaryDark);
+            root.style.setProperty('--bg-cream', bgCream);
+            root.style.setProperty('--accent-gold', gold);
+            root.style.setProperty('--text-ink', ink);
+            root.style.setProperty('--font-script', `"${fontScript}"`);
+            root.style.setProperty('--font-body', `"${fontBody}"`);
+
+            const pPrimary = document.getElementById('pickerPrimaryColor');
+            const pBg = document.getElementById('pickerBgColor');
+            const pGold = document.getElementById('pickerGoldColor');
+            const pInk = document.getElementById('pickerInkColor');
+            const fScript = document.getElementById('fontScriptSelect');
+            const fBody = document.getElementById('fontBodySelect');
+
+            if (pPrimary) pPrimary.value = primary;
+            if (pBg) pBg.value = bgCream;
+            if (pGold) pGold.value = gold;
+            if (pInk) pInk.value = ink;
+            if (fScript) fScript.value = fontScript;
+            if (fBody) fBody.value = fontBody;
+        }
+
+        window.applyColorPalette = function(primary, primaryDark, bgCream, gold, ink) {
+            state.theme.primary = primary;
+            state.theme.primaryDark = primaryDark;
+            state.theme.bgCream = bgCream;
+            state.theme.gold = gold;
+            state.theme.ink = ink;
+            applyThemeToCSSVariables();
+            persistWeddingData();
+            showToast('Đã áp dụng bảng màu thiệp mới!');
+        };
+
+        window.updateCustomColorsFromPickers = function() {
+            const primary = document.getElementById('pickerPrimaryColor').value;
+            const bgCream = document.getElementById('pickerBgColor').value;
+            const gold = document.getElementById('pickerGoldColor').value;
+            const ink = document.getElementById('pickerInkColor').value;
+
+            state.theme.primary = primary;
+            state.theme.primaryDark = shadeHexColor(primary, -28);
+            state.theme.bgCream = bgCream;
+            state.theme.gold = gold;
+            state.theme.ink = ink;
+            applyThemeToCSSVariables();
+            persistWeddingData();
+        };
+
+        window.updateCustomFonts = function() {
+            state.theme.fontScript = document.getElementById('fontScriptSelect').value;
+            state.theme.fontBody = document.getElementById('fontBodySelect').value;
+            applyThemeToCSSVariables();
+            persistWeddingData();
+            showToast('Đã cập nhật phông chữ thiệp!');
+        };
+
+        function renderWaxSealGraphic() {
+            const customImg = document.getElementById('customWaxSealImg');
+            const defaultSvg = document.getElementById('defaultHeartWaxSvg');
+            if (!customImg || !defaultSvg) return;
+
+            if (state.customWaxSealUrl) {
+                customImg.src = state.customWaxSealUrl;
+                customImg.classList.remove('hidden');
+                defaultSvg.classList.add('hidden');
+            } else {
+                customImg.classList.add('hidden');
+                defaultSvg.classList.remove('hidden');
+            }
+        }
+
+        document.getElementById('customWaxUploadInput').addEventListener('change', function(e) {
+            const file = e.target.files && e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(ev) {
+                state.customWaxSealUrl = ev.target.result;
+                renderWaxSealGraphic();
+                persistWeddingData();
+                showToast('Đã thay ảnh con dấu sáp!');
+            };
+            reader.readAsDataURL(file);
+        });
+
+        window.resetDefaultHeartSeal = function() {
+            state.customWaxSealUrl = '';
+            renderWaxSealGraphic();
+            persistWeddingData();
+            showToast('Đã khôi phục Dấu Sáp Trái Tim Đỏ 3D!');
+        };
+
+        // --------------------------------------------------
+        // C. LIVE COUNTDOWN TIMER (02/11/2026 OR 07/11/2026)
+        // --------------------------------------------------
+        function updateCountdownTick() {
+            const targetIso = state.cardConfig.countdown === '0711'
+                ? '2026-11-07T10:00:00+07:00'
+                : '2026-11-02T17:30:00+07:00';
+
+            const targetTime = new Date(targetIso).getTime();
+            const now = Date.now();
+            const diff = Math.max(0, targetTime - now);
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            const dEl = document.getElementById('cdDays');
+            const hEl = document.getElementById('cdHours');
+            const mEl = document.getElementById('cdMinutes');
+            const sEl = document.getElementById('cdSeconds');
+
+            if (dEl) dEl.textContent = String(days).padStart(2, '0');
+            if (hEl) hEl.textContent = String(hours).padStart(2, '0');
+            if (mEl) mEl.textContent = String(minutes).padStart(2, '0');
+            if (sEl) sEl.textContent = String(seconds).padStart(2, '0');
+        }
+        setInterval(updateCountdownTick, 1000);
+
+        // --------------------------------------------------
+        // D. GOOGLE DRIVE LINK CONVERTER & PHOTO RENDERER
+        // --------------------------------------------------
+        function normalizeImageUrl(rawUrl) {
+            if (!rawUrl) return '';
+            const trimmed = rawUrl.trim();
+            const driveMatch = trimmed.match(/\/file\/d\/([a-zA-Z0-9_-]+)/) || trimmed.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+            if (driveMatch && driveMatch[1]) {
+                return `https://lh3.googleusercontent.com/d/${driveMatch[1]}=w1400`;
+            }
+            return trimmed;
+        }
+
+        function applyPhotoSettingsToElements(wrapperEl, imgEl, photoData) {
+            if (!wrapperEl || !imgEl || !photoData) return;
+
+            wrapperEl.classList.remove('frame-natural', 'frame-arch', 'frame-portrait', 'frame-landscape', 'frame-square');
+            wrapperEl.classList.add(photoData.frame || 'frame-natural');
+
+            imgEl.src = normalizeImageUrl(photoData.url);
+
+            if (photoData.fit === 'natural') {
+                imgEl.style.objectFit = 'contain';
+                imgEl.style.height = 'auto';
+            } else if (photoData.fit === 'contain') {
+                imgEl.style.objectFit = 'contain';
+                imgEl.style.height = '100%';
+            } else {
+                imgEl.style.objectFit = 'cover';
+                imgEl.style.height = '100%';
+            }
+
+            const scale = (photoData.scale || 100) / 100;
+            const rotate = photoData.rotate || 0;
+            const panX = photoData.panX || 0;
+            const panY = photoData.panY || 0;
+            imgEl.style.transform = `translate(${panX}%, ${panY}%) scale(${scale}) rotate(${rotate}deg)`;
+        }
+
+        function renderHeroPhoto() {
+            const wrapper = document.getElementById('heroPhotoWrapper');
+            const img = document.getElementById('heroPhotoImg');
+            applyPhotoSettingsToElements(wrapper, img, state.heroPhoto);
+        }
+
+        function renderGallery() {
+            const grid = document.getElementById('galleryGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            state.gallery.forEach((item, idx) => {
+                const colSpanClass = (idx === 0 || idx === 5) ? 'sm:col-span-2' : '';
+                const card = document.createElement('div');
+                card.className = `relative group ${colSpanClass}`;
+
+                const wrapper = document.createElement('div');
+                wrapper.className = `photo-slot-wrapper ${item.frame || 'frame-natural'} w-full shadow-md cursor-pointer`;
+                wrapper.onclick = () => {
+                    if (!state.isAdmin) openLightbox(normalizeImageUrl(item.url));
+                };
+
+                const img = document.createElement('img');
+                img.className = 'photo-slot-img';
+                img.alt = `Ảnh cưới ${idx + 1}`;
+                img.loading = 'lazy';
+                img.onerror = function() {
+                    this.src = `https://placehold.co/800x1000/FAF8F5/8C2D2D?text=Anh+Cuoi+${idx + 1}`;
+                };
+
+                applyPhotoSettingsToElements(wrapper, img, item);
+                wrapper.appendChild(img);
+
+                const editBtn = document.createElement('button');
+                editBtn.type = 'button';
+                editBtn.className = 'admin-only-control absolute bottom-3 right-3 z-20 px-3.5 py-1.5 rounded-full bg-white/95 text-burgundy text-xs font-semibold shadow-lg border border-gold hover:scale-105 transition';
+                editBtn.innerHTML = `<i class="fa-solid fa-crop-simple mr-1"></i> Chỉnh ảnh #${idx + 1}`;
+                editBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    openPhotoEditor(idx);
+                };
+
+                card.appendChild(wrapper);
+                card.appendChild(editBtn);
+                grid.appendChild(card);
+            });
+        }
+
+        // --------------------------------------------------
+        // E. PHOTO EDITOR MODAL (CROP, ROTATE, SCALE, NATURAL FIT)
+        // --------------------------------------------------
+        let currentEditingTarget = null;
+
+        window.openPhotoEditor = function(target) {
+            currentEditingTarget = target;
+            const data = target === 'hero' ? state.heroPhoto : state.gallery[target];
+            if (!data) return;
+
+            document.getElementById('photoUrlInput').value = data.url || '';
+            document.getElementById('editorFitSelect').value = data.fit || 'natural';
+            document.getElementById('editorFrameSelect').value = data.frame || 'frame-natural';
+            document.getElementById('editorScaleRange').value = data.scale || 100;
+            document.getElementById('editorRotateRange').value = data.rotate || 0;
+            document.getElementById('editorPanXRange').value = data.panX || 0;
+            document.getElementById('editorPanYRange').value = data.panY || 0;
+
+            updateEditorLivePreview();
+            const modal = document.getElementById('photoEditorModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        };
+
+        window.closePhotoEditor = function() {
+            const modal = document.getElementById('photoEditorModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        };
+
+        window.updateEditorLivePreview = function() {
+            const url = normalizeImageUrl(document.getElementById('photoUrlInput').value);
+            const fit = document.getElementById('editorFitSelect').value;
+            const frame = document.getElementById('editorFrameSelect').value;
+            const scale = Number(document.getElementById('editorScaleRange').value) || 100;
+            const rotate = Number(document.getElementById('editorRotateRange').value) || 0;
+            const panX = Number(document.getElementById('editorPanXRange').value) || 0;
+            const panY = Number(document.getElementById('editorPanYRange').value) || 0;
+
+            document.getElementById('scaleValLabel').textContent = `${scale}%`;
+            document.getElementById('rotateValLabel').textContent = `${rotate}°`;
+            document.getElementById('panXValLabel').textContent = `${panX}%`;
+            document.getElementById('panYValLabel').textContent = `${panY}%`;
+
+            const previewFrame = document.getElementById('editorPreviewFrame');
+            const previewImg = document.getElementById('editorPreviewImg');
+
+            applyPhotoSettingsToElements(previewFrame, previewImg, { url, fit, frame, scale, rotate, panX, panY });
+        };
+
+        window.rotateEditorStep = function(delta) {
+            const range = document.getElementById('editorRotateRange');
+            let val = Number(range.value) + delta;
+            if (val > 180) val -= 360;
+            if (val < -180) val += 360;
+            range.value = val;
+            updateEditorLivePreview();
+        };
+
+        window.resetPhotoEditorTransform = function() {
+            document.getElementById('editorFitSelect').value = 'natural';
+            document.getElementById('editorFrameSelect').value = 'frame-natural';
+            document.getElementById('editorScaleRange').value = 100;
+            document.getElementById('editorRotateRange').value = 0;
+            document.getElementById('editorPanXRange').value = 0;
+            document.getElementById('editorPanYRange').value = 0;
+            updateEditorLivePreview();
+        };
+
+        window.applyPhotoUrlInput = function() {
+            updateEditorLivePreview();
+        };
+
+        // Direct Drag-to-Pan & Mouse-Wheel Zoom
+        (function setupInteractiveImageStage() {
+            const stage = document.getElementById('interactiveCropStage');
+            if (!stage) return;
+            let isDragging = false;
+            let startX = 0;
+            let startY = 0;
+            let initialPanX = 0;
+            let initialPanY = 0;
+
+            stage.addEventListener('pointerdown', (e) => {
+                isDragging = true;
+                startX = e.clientX;
+                startY = e.clientY;
+                initialPanX = Number(document.getElementById('editorPanXRange').value) || 0;
+                initialPanY = Number(document.getElementById('editorPanYRange').value) || 0;
+                stage.setPointerCapture(e.pointerId);
+            });
+
+            stage.addEventListener('pointermove', (e) => {
+                if (!isDragging) return;
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+                const newPanX = Math.max(-150, Math.min(150, Math.round(initialPanX + dx * 0.45)));
+                const newPanY = Math.max(-150, Math.min(150, Math.round(initialPanY + dy * 0.45)));
+                document.getElementById('editorPanXRange').value = newPanX;
+                document.getElementById('editorPanYRange').value = newPanY;
+                updateEditorLivePreview();
+            });
+
+            stage.addEventListener('pointerup', () => { isDragging = false; });
+            stage.addEventListener('pointercancel', () => { isDragging = false; });
+
+            stage.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                const scaleRange = document.getElementById('editorScaleRange');
+                let currentScale = Number(scaleRange.value) || 100;
+                const delta = e.deltaY < 0 ? 6 : -6;
+                currentScale = Math.max(30, Math.min(300, currentScale + delta));
+                scaleRange.value = currentScale;
+                updateEditorLivePreview();
+            }, { passive: false });
+        })();
+
+        document.getElementById('photoFileInput').addEventListener('change', function(e) {
+            const file = e.target.files && e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(ev) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    const maxDim = 1200;
+                    let w = img.width;
+                    let h = img.height;
+                    if (w > maxDim || h > maxDim) {
+                        if (w > h) { h = Math.round((h * maxDim) / w); w = maxDim; }
+                        else { w = Math.round((w * maxDim) / h); h = maxDim; }
+                    }
+                    canvas.width = w;
+                    canvas.height = h;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, w, h);
+                    const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.84);
+                    document.getElementById('photoUrlInput').value = compressedDataUrl;
+                    updateEditorLivePreview();
+                };
+                img.src = ev.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+
+        window.savePhotoEditorChanges = function() {
+            const updated = {
+                url: document.getElementById('photoUrlInput').value.trim(),
+                fit: document.getElementById('editorFitSelect').value,
+                frame: document.getElementById('editorFrameSelect').value,
+                scale: Number(document.getElementById('editorScaleRange').value) || 100,
+                rotate: Number(document.getElementById('editorRotateRange').value) || 0,
+                panX: Number(document.getElementById('editorPanXRange').value) || 0,
+                panY: Number(document.getElementById('editorPanYRange').value) || 0
+            };
+
+            if (currentEditingTarget === 'hero') {
+                state.heroPhoto = updated;
+                renderHeroPhoto();
+            } else if (typeof currentEditingTarget === 'number') {
+                state.gallery[currentEditingTarget] = { id: currentEditingTarget, ...updated };
+                renderGallery();
+            }
+
+            persistWeddingData();
+            closePhotoEditor();
+        };
+
+        window.setAllPhotosNaturalNoCrop = function() {
+            state.gallery = state.gallery.map(item => ({
+                ...item,
+                fit: 'natural',
+                frame: 'frame-natural',
+                scale: 100,
+                panX: 0,
+                panY: 0
+            }));
+            renderGallery();
+            persistWeddingData();
+        };
+
+        // --------------------------------------------------
+        // F. LIGHTBOX FUNCTIONS
+        // --------------------------------------------------
+        window.openLightbox = function(src) {
+            const modal = document.getElementById('lightboxModal');
+            const img = document.getElementById('lightboxImg');
+            img.src = src;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        };
+        window.closeLightbox = function() {
+            const modal = document.getElementById('lightboxModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        };
+
+        // --------------------------------------------------
+        // G. ADMIN PASSWORD UNLOCK (CODE: 2026 - HIDDEN FROM GUESTS)
+        // --------------------------------------------------
+        const ADMIN_SECRET = "2026";
+
+        document.getElementById('subtleAdminLockBtn').addEventListener('click', () => {
+            if (state.isAdmin) {
+                openAdminDrawer();
+                return;
+            }
+            const modal = document.getElementById('passwordModal');
+            document.getElementById('adminPasswordInput').value = '';
+            document.getElementById('passwordErrorMsg').classList.add('hidden');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => document.getElementById('adminPasswordInput').focus(), 100);
+        });
+
+        window.closePasswordModal = function() {
+            const modal = document.getElementById('passwordModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        };
+
+        document.getElementById('passwordForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const val = document.getElementById('adminPasswordInput').value.trim();
+            if (val === ADMIN_SECRET) {
+                closePasswordModal();
+                enableAdminEditMode();
+            } else {
+                document.getElementById('passwordErrorMsg').classList.remove('hidden');
+            }
+        });
+
+        function enableAdminEditMode() {
+            state.isAdmin = true;
+            document.body.classList.add('admin-edit-mode');
+
+            document.querySelectorAll('[data-editable]').forEach(el => {
+                el.setAttribute('contenteditable', 'true');
+                el.addEventListener('blur', handleEditableBlur);
+            });
+
+            renderWishes();
+            updateShareLinkBuilder();
+            openAdminDrawer();
+        }
+
+        function disableAdminEditMode() {
+            state.isAdmin = false;
+            document.body.classList.remove('admin-edit-mode');
+            document.querySelectorAll('[data-editable]').forEach(el => {
+                el.removeAttribute('contenteditable');
+            });
+            renderWishes();
+        }
+
+        function handleEditableBlur(e) {
+            const key = e.target.getAttribute('data-editable');
+            if (!key) return;
+            state.texts[key] = e.target.innerText;
+            persistWeddingData();
+        }
+
+        function collectAllEditableTexts() {
+            document.querySelectorAll('[data-editable]').forEach(el => {
+                const key = el.getAttribute('data-editable');
+                if (key) state.texts[key] = el.innerText;
+            });
+        }
+
+        function applySavedTextsToDOM() {
+            if (!state.texts) return;
+            Object.entries(state.texts).forEach(([key, val]) => {
+                const el = document.querySelector(`[data-editable="${key}"]`);
+                if (el && val !== undefined) {
+                    el.innerText = val;
+                }
+            });
+            applyCardConfigToDOM();
+        }
+
+        // Section Visibility Toggle
+        window.toggleSectionVisibility = function(secId) {
+            if (!state.hiddenSections.includes(secId)) {
+                state.hiddenSections.push(secId);
+            }
+            applyHiddenSections();
+            persistWeddingData();
+        };
+
+        window.restoreAllHiddenSections = function() {
+            state.hiddenSections = [];
+            applyHiddenSections();
+            persistWeddingData();
+        };
+
+        function applyHiddenSections() {
+            ['sec-hero', 'sec-loingo', 'sec-family', 'sec-events', 'sec-countdown', 'sec-album', 'sec-wishes'].forEach(id => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                if (state.hiddenSections.includes(id)) {
+                    el.style.display = 'none';
+                } else {
+                    el.style.display = '';
+                }
+            });
+        }
+
+        // --------------------------------------------------
+        // H. ADMIN DRAWER & 3-CARD SHARE LINK GENERATOR
+        // --------------------------------------------------
+        window.openAdminDrawer = function() {
+            const drawer = document.getElementById('adminDrawerModal');
+            drawer.classList.remove('hidden');
+            drawer.classList.add('flex');
+            updateShareLinkBuilder();
+        };
+
+        window.closeAdminDrawer = function() {
+            const drawer = document.getElementById('adminDrawerModal');
+            drawer.classList.add('hidden');
+            drawer.classList.remove('flex');
+        };
+
+        document.getElementById('openAdminDrawerBtn').addEventListener('click', openAdminDrawer);
+        document.getElementById('exitAdminModeBtn').addEventListener('click', disableAdminEditMode);
+        document.getElementById('saveAllChangesBtn').addEventListener('click', () => {
+            collectAllEditableTexts();
+            persistWeddingData();
+            showToast('Đã lưu mọi thay đổi trên thiệp!');
+        });
+
+        window.applyPresetCard = function(presetNum) {
+            const gSel = document.getElementById('genGreetingSelect');
+            const cdSel = document.getElementById('genCountdownSelect');
+            const evSel = document.getElementById('genEventSelect');
+
+            if (presetNum === 1) {
+                gSel.value = 'kinh';
+                cdSel.value = '0211';
+                evSel.value = 'thanhhon';
+            } else if (presetNum === 2) {
+                gSel.value = 'than';
+                cdSel.value = '0211';
+                evSel.value = 'thanhhon';
+            } else if (presetNum === 3) {
+                gSel.value = 'kinh';
+                cdSel.value = '0711';
+                evSel.value = 'vuquy';
+            }
+            updateShareLinkBuilder();
+            previewGeneratedConfigOnScreen();
+        };
+
+        window.updateShareLinkBuilder = function() {
+            const g = document.getElementById('genGreetingSelect').value;
+            const cd = document.getElementById('genCountdownSelect').value;
+            const ev = document.getElementById('genEventSelect').value;
+            const guest = document.getElementById('genGuestNameInput').value.trim();
+            const fx = state.scrollEffect || 'fade-up';
+
+            const baseUrl = window.location.origin + window.location.pathname;
+            const params = new URLSearchParams();
+            if (guest) params.set('k', guest);
+            params.set('m', g === 'than' ? '2' : '1');
+            params.set('c', cd === '0711' ? '2' : '1');
+            params.set('e', ev === 'vuquy' ? '2' : (ev === 'both' ? '3' : '1'));
+            if (fx !== 'fade-up') params.set('fx', fx);
+
+            const shortLink = `${baseUrl}?${params.toString()}`;
+            const outInput = document.getElementById('generatedShareUrlInput');
+            if (outInput) outInput.value = shortLink;
+
+            const greetingText = g === 'than' ? 'Trân trọng thân mời' : 'Trân trọng kính mời';
+            const guestDisplay = guest || 'Quý Khách';
+
+            let eventTitleLine = '💌 Lễ Thành Hôn (Nhà Trai)';
+            let eventTimeLine = '⏰ Thời gian: 17:30 ngày 02/11/2026';
+
+            if (ev === 'vuquy' || (ev === 'both' && cd === '0711')) {
+                eventTitleLine = '💌 Lễ Vu Quy (Nhà Gái)';
+                eventTimeLine = '⏰ Thời gian: 10:00 ngày 07/11/2026';
+            } else if (ev === 'both') {
+                eventTitleLine = '💌 Lễ Thành Hôn (Nhà Trai) & Lễ Vu Quy (Nhà Gái)';
+                eventTimeLine = '⏰ Thời gian: 17:30 ngày 02/11/2026 & 10:00 ngày 07/11/2026';
+            }
+
+            const formattedMessage = `${greetingText} ${guestDisplay} đến chung vui trong ngày trọng đại của Quang Anh & Thanh Thư!\n\n${eventTitleLine}\n${eventTimeLine}\n👉 Mời xem thiệp cưới online và gửi lời chúc tại:\n${shortLink}`;
+
+            const msgBox = document.getElementById('generatedFullInviteText');
+            if (msgBox) msgBox.value = formattedMessage;
+        };
+
+        window.copyGeneratedShareLink = function() {
+            const msgBox = document.getElementById('generatedFullInviteText');
+            if (!msgBox) return;
+            msgBox.select();
+            msgBox.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+
+            const badge = document.getElementById('copySuccessBadge');
+            if (badge) {
+                badge.classList.remove('hidden');
+                setTimeout(() => badge.classList.add('hidden'), 2500);
+            }
+            showToast('Đã sao chép Lời Mời + Link thiệp!');
+        };
+
+        window.copyOnlyShortLink = function() {
+            const input = document.getElementById('generatedShareUrlInput');
+            if (!input) return;
+            input.select();
+            input.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+            showToast('Đã sao chép Link thu gọn!');
+        };
+
+        window.previewGeneratedConfigOnScreen = function() {
+            state.cardConfig.greeting = document.getElementById('genGreetingSelect').value;
+            state.cardConfig.countdown = document.getElementById('genCountdownSelect').value;
+            state.cardConfig.event = document.getElementById('genEventSelect').value;
+            state.cardConfig.guestName = document.getElementById('genGuestNameInput').value.trim();
+            applyCardConfigToDOM();
+            showToast('Đang xem thử cấu hình thiệp đã chọn!');
+        };
+
+        window.changeScrollEffectStyle = function(fxValue) {
+            state.scrollEffect = fxValue;
+            document.body.setAttribute('data-scroll-fx', fxValue);
+            document.querySelectorAll('.reveal-item').forEach(el => {
+                el.classList.remove('visible');
+                setTimeout(() => el.classList.add('visible'), 60);
+            });
+            updateShareLinkBuilder();
+            persistWeddingData();
+        };
+
+        window.togglePetalsEffect = function(val) {
+            state.petalsEnabled = val;
+            const canvas = document.getElementById('petalsCanvas');
+            if (canvas) canvas.style.display = val === 'off' ? 'none' : 'block';
+            persistWeddingData();
+        };
+
+        // --------------------------------------------------
+        // I. LỜI CHÚC MỪNG (WISHES LIST & EDIT/DELETE IN ADMIN)
+        // --------------------------------------------------
+        function renderWishes() {
+            const container = document.getElementById('wishesListContainer');
+            if (!container) return;
+            container.innerHTML = '';
+
+            if (!state.wishes || state.wishes.length === 0) {
+                container.innerHTML = `<p class="text-xs text-center text-ink/60 italic py-4">Chưa có lời chúc nào. Hãy là người đầu tiên gửi lời chúc tốt đẹp nhất đến Quang Anh &amp; Thanh Thư nhé!</p>`;
+                return;
+            }
+
+            state.wishes.forEach((w) => {
+                const item = document.createElement('div');
+                item.className = 'bg-white border border-gold/40 rounded-2xl p-3.5 shadow-sm relative';
+
+                const header = document.createElement('div');
+                header.className = 'flex items-center justify-between mb-1';
+
+                const nameEl = document.createElement('span');
+                nameEl.className = 'font-display font-bold text-sm text-burgundy';
+                nameEl.textContent = w.name;
+
+                const timeEl = document.createElement('span');
+                timeEl.className = 'text-[10px] text-ink/50 font-sans';
+                timeEl.textContent = w.time || 'Vừa xong';
+
+                header.appendChild(nameEl);
+                header.appendChild(timeEl);
+
+                const msgEl = document.createElement('p');
+                msgEl.className = 'text-sm text-ink/85 leading-relaxed';
+                msgEl.textContent = w.message;
+
+                if (state.isAdmin) {
+                    const delBtn = document.createElement('button');
+                    delBtn.type = 'button';
+                    delBtn.className = 'absolute top-2.5 right-2.5 text-xs text-red-600 hover:text-red-800 px-2 py-0.5 bg-red-50 rounded';
+                    delBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i> Xóa';
+                    delBtn.onclick = () => deleteWishById(w.id);
+                    item.appendChild(delBtn);
+                }
+
+                item.appendChild(header);
+                item.appendChild(msgEl);
+                container.appendChild(item);
+            });
+        }
+
+        document.getElementById('wishForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nameInput = document.getElementById('wishSenderName');
+            const msgInput = document.getElementById('wishMessageInput');
+            const name = nameInput.value.trim();
+            const message = msgInput.value.trim();
+            if (!name || !message) return;
+
+            const nowStr = new Date().toLocaleDateString('vi-VN');
+            state.wishes.unshift({
+                id: 'w_' + Date.now(),
+                name,
+                message,
+                time: nowStr
+            });
+
+            nameInput.value = '';
+            msgInput.value = '';
+            renderWishes();
+            persistWeddingData();
+            showToast('Cảm ơn bạn đã gửi lời chúc mừng!');
+        });
+
+        function deleteWishById(id) {
+            state.wishes = state.wishes.filter(w => w.id !== id);
+            renderWishes();
+            persistWeddingData();
+        }
+
+        // --------------------------------------------------
+        // J. BACKGROUND MUSIC (YOUTUBE JgTZvDbaTtg + FALLBACK)
+        // --------------------------------------------------
+        let ytPlayer = null;
+        let isMusicPlaying = false;
+
+        function extractYouTubeId(url) {
+            const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([a-zA-Z0-9_-]{11})/);
+            return m ? m[1] : null;
+        }
+
+        function loadYouTubeApi() {
+            const tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            document.head.appendChild(tag);
+        }
+
+        window.onYouTubeIframeAPIReady = function() {
+            ytPlayer = new YT.Player('youtubePlayer', {
+                height: '1',
+                width: '1',
+                videoId: state.youtubeVideoId || 'JgTZvDbaTtg',
+                playerVars: {
+                    autoplay: 0,
+                    loop: 1,
+                    playlist: state.youtubeVideoId || 'JgTZvDbaTtg',
+                    controls: 0,
+                    rel: 0
+                },
+                events: {
+                    onStateChange: (event) => {
+                        if (event.data === YT.PlayerState.PLAYING) {
+                            setMusicVisualState(true);
+                        } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+                            setMusicVisualState(false);
+                        }
+                    }
+                }
+            });
+        };
+
+        function startWeddingMusic() {
+            const audioEl = document.getElementById('customAudioPlayer');
+            if (state.customMp3Url) {
+                audioEl.src = state.customMp3Url;
+                audioEl.play().then(() => setMusicVisualState(true)).catch(() => {});
+                return;
+            }
+            if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
+                ytPlayer.unMute();
+                ytPlayer.setVolume(85);
+                ytPlayer.playVideo();
+                setMusicVisualState(true);
+            }
+        }
+
+        function toggleWeddingMusic() {
+            const audioEl = document.getElementById('customAudioPlayer');
+            if (state.customMp3Url) {
+                if (audioEl.paused) {
+                    audioEl.play();
+                    setMusicVisualState(true);
+                } else {
+                    audioEl.pause();
+                    setMusicVisualState(false);
+                }
+                return;
+            }
+            if (!ytPlayer || typeof ytPlayer.getPlayerState !== 'function') return;
+            const st = ytPlayer.getPlayerState();
+            if (st === YT.PlayerState.PLAYING) {
+                ytPlayer.pauseVideo();
+                setMusicVisualState(false);
+            } else {
+                ytPlayer.playVideo();
+                setMusicVisualState(true);
+            }
+        }
+
+        function setMusicVisualState(playing) {
+            isMusicPlaying = playing;
+            const icon = document.getElementById('musicIcon');
+            if (!icon) return;
+            if (playing) {
+                icon.classList.add('music-disc-playing');
+            } else {
+                icon.classList.remove('music-disc-playing');
+            }
+        }
+
+        document.getElementById('musicToggleBtn').addEventListener('click', toggleWeddingMusic);
+
+        window.applyCustomMusicInput = function() {
+            const raw = document.getElementById('adminYoutubeUrlInput').value.trim();
+            if (!raw) return;
+            const ytId = extractYouTubeId(raw);
+            if (ytId) {
+                state.youtubeVideoId = ytId;
+                state.customMp3Url = '';
+                if (ytPlayer && typeof ytPlayer.loadVideoById === 'function') {
+                    ytPlayer.loadVideoById(ytId);
+                }
+            } else {
+                state.customMp3Url = raw;
+            }
+            persistWeddingData();
+            showToast('Đã cập nhật nhạc nền!');
+        };
+
+        // --------------------------------------------------
+        // K. ENVELOPE OPENING & SCROLL REVEAL & FALLING PETALS
+        // --------------------------------------------------
+        document.getElementById('openEnvelopeBtn').addEventListener('click', () => {
+            const env = document.getElementById('envelopeOverlay');
+            env.classList.add('opening');
+            startWeddingMusic();
+            setTimeout(() => {
+                env.classList.add('opened');
+            }, 750);
+        });
+
+        function setupScrollObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.14 });
+
+            document.querySelectorAll('.reveal-item').forEach(el => observer.observe(el));
+        }
+
+        function initPetalsCanvas() {
+            const canvas = document.getElementById('petalsCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            });
+
+            const petals = Array.from({ length: 18 }, () => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                r: 4 + Math.random() * 5,
+                vy: 0.55 + Math.random() * 0.9,
+                vx: -0.35 + Math.random() * 0.7,
+                angle: Math.random() * Math.PI * 2,
+                spin: (Math.random() - 0.5) * 0.02
+            }));
+
+            function drawPetals() {
+                ctx.clearRect(0, 0, width, height);
+                if (state.petalsEnabled !== 'off') {
+                    petals.forEach(p => {
+                        p.y += p.vy;
+                        p.x += p.vx + Math.sin(p.angle) * 0.3;
+                        p.angle += p.spin;
+                        if (p.y > height + 20) {
+                            p.y = -15;
+                            p.x = Math.random() * width;
+                        }
+                        ctx.save();
+                        ctx.translate(p.x, p.y);
+                        ctx.rotate(p.angle);
+                        ctx.fillStyle = 'rgba(210, 120, 125, 0.28)';
+                        ctx.beginPath();
+                        ctx.ellipse(0, 0, p.r, p.r * 0.62, 0, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.restore();
+                    });
+                }
+                requestAnimationFrame(drawPetals);
+            }
+            drawPetals();
+        }
+
+        // Toast Helper
+        function showToast(msg) {
+            let t = document.getElementById('toastBanner');
+            if (!t) {
+                t = document.createElement('div');
+                t.id = 'toastBanner';
+                t.className = 'fixed top-5 left-1/2 -translate-x-1/2 z-[80] bg-burgundy text-white px-5 py-2.5 rounded-full text-xs font-semibold shadow-2xl border border-gold transition-opacity duration-300';
+                document.body.appendChild(t);
+            }
+            t.textContent = msg;
+            t.style.opacity = '1';
+            clearTimeout(t._timer);
+            t._timer = setTimeout(() => { t.style.opacity = '0'; }, 2600);
+        }
+
+        // --------------------------------------------------
+        // L. CLOUD PERSISTENCE (FIRESTORE + LOCALSTORAGE FALLBACK)
+        // --------------------------------------------------
+        let db = null;
+        let currentUser = null;
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'quanganh-thanhthu-2026';
+
+        async function initCloudStorage() {
+            try {
+                if (typeof __firebase_config !== 'undefined' && __firebase_config) {
+                    const firebaseConfig = JSON.parse(__firebase_config);
+                    const app = initializeApp(firebaseConfig);
+                    const auth = getAuth(app);
+                    db = getFirestore(app);
+
+                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                        await signInWithCustomToken(auth, __initial_auth_token);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+
+                    onAuthStateChanged(auth, (user) => {
+                        currentUser = user;
+                        if (user) subscribeToWeddingDoc();
+                    });
+                }
+            } catch (err) {
+                console.warn('Using local persistence fallback:', err);
+            }
+        }
+
+        function subscribeToWeddingDoc() {
+            if (!db || !currentUser) return;
+            const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'wedding_config', 'main');
+            onSnapshot(docRef, (snap) => {
+                if (!snap.exists()) return;
+                const data = snap.data();
+                if (data.heroPhotoJson) {
+                    try { state.heroPhoto = JSON.parse(data.heroPhotoJson); } catch(e) {}
+                }
+                if (data.galleryJson) {
+                    try { state.gallery = JSON.parse(data.galleryJson); } catch(e) {}
+                }
+                if (data.textsJson) {
+                    try { state.texts = JSON.parse(data.textsJson); } catch(e) {}
+                }
+                if (data.hiddenSectionsJson) {
+                    try { state.hiddenSections = JSON.parse(data.hiddenSectionsJson); } catch(e) {}
+                }
+                if (data.wishesJson) {
+                    try { state.wishes = JSON.parse(data.wishesJson); } catch(e) {}
+                }
+                if (data.themeJson) {
+                    try {
+                        const loadedTheme = JSON.parse(data.themeJson);
+                        sanitizeBrightTheme(loadedTheme);
+                        state.theme = { ...state.theme, ...loadedTheme };
+                    } catch(e) {}
+                }
+                if (data.customWaxSealUrl !== undefined) state.customWaxSealUrl = data.customWaxSealUrl;
+                if (data.scrollEffect && !new URLSearchParams(window.location.search).get('fx')) {
+                    state.scrollEffect = data.scrollEffect;
+                }
+                if (data.petalsEnabled) state.petalsEnabled = data.petalsEnabled;
+                if (data.youtubeVideoId) state.youtubeVideoId = data.youtubeVideoId;
+                if (data.customMp3Url !== undefined) state.customMp3Url = data.customMp3Url;
+
+                renderHeroPhoto();
+                renderGallery();
+                applySavedTextsToDOM();
+                applyHiddenSections();
+                renderWishes();
+                applyCardConfigToDOM();
+            }, (err) => {
+                console.warn('Snapshot listener error:', err);
+            });
+        }
+
+        async function persistWeddingData() {
+            try {
+                collectAllEditableTexts();
+                localStorage.setItem('wedding_qa_tt_2026_bright', JSON.stringify({
+                    heroPhoto: state.heroPhoto,
+                    gallery: state.gallery,
+                    texts: state.texts,
+                    hiddenSections: state.hiddenSections,
+                    wishes: state.wishes,
+                    theme: state.theme,
+                    customWaxSealUrl: state.customWaxSealUrl,
+                    scrollEffect: state.scrollEffect,
+                    petalsEnabled: state.petalsEnabled,
+                    youtubeVideoId: state.youtubeVideoId,
+                    customMp3Url: state.customMp3Url
+                }));
+            } catch (e) {}
+
+            if (!currentUser || !db) return;
+            try {
+                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'wedding_config', 'main');
+                await setDoc(docRef, {
+                    heroPhotoJson: JSON.stringify(state.heroPhoto),
+                    galleryJson: JSON.stringify(state.gallery),
+                    textsJson: JSON.stringify(state.texts),
+                    hiddenSectionsJson: JSON.stringify(state.hiddenSections),
+                    wishesJson: JSON.stringify(state.wishes),
+                    themeJson: JSON.stringify(state.theme),
+                    customWaxSealUrl: state.customWaxSealUrl || '',
+                    scrollEffect: state.scrollEffect,
+                    petalsEnabled: state.petalsEnabled,
+                    youtubeVideoId: state.youtubeVideoId,
+                    customMp3Url: state.customMp3Url,
+                    updatedAt: Date.now()
+                }, { merge: true });
+            } catch (err) {
+                console.warn('Save error:', err);
+            }
+        }
+
+        // --------------------------------------------------
+        // M. INITIALIZE APPLICATION ON LOAD
+        // --------------------------------------------------
+        window.onload = function() {
+            try {
+                const savedLocal = localStorage.getItem('wedding_qa_tt_2026_bright');
+                if (savedLocal) {
+                    const parsed = JSON.parse(savedLocal);
+                    if (parsed.heroPhoto) state.heroPhoto = parsed.heroPhoto;
+                    if (parsed.gallery) state.gallery = parsed.gallery;
+                    if (parsed.texts) state.texts = parsed.texts;
+                    if (parsed.hiddenSections) state.hiddenSections = parsed.hiddenSections;
+                    if (parsed.wishes) state.wishes = parsed.wishes;
+                    if (parsed.theme) {
+                        sanitizeBrightTheme(parsed.theme);
+                        state.theme = { ...state.theme, ...parsed.theme };
+                    }
+                    if (parsed.customWaxSealUrl !== undefined) state.customWaxSealUrl = parsed.customWaxSealUrl;
+                    if (parsed.scrollEffect) state.scrollEffect = parsed.scrollEffect;
+                    if (parsed.petalsEnabled) state.petalsEnabled = parsed.petalsEnabled;
+                }
+            } catch (e) {}
+
+            parseUrlCardConfig();
+            renderHeroPhoto();
+            renderGallery();
+            applySavedTextsToDOM();
+            applyHiddenSections();
+            renderWishes();
+            applyCardConfigToDOM();
+            setupScrollObserver();
+            initPetalsCanvas();
+            loadYouTubeApi();
+            initCloudStorage();
+        };
+    </script>
+</body>
+</html>
